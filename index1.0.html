@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bartosz Borowski — IT Lead</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --border: #222222;
+      --accent: #5117e3;
+      --accent2: #6b2ff5;
+      --text: #e8e8e8;
+      --muted: #666666;
+      --font-head: 'Syne', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(81,23,227,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3rem 4rem 3rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--accent2); transform: translateX(4px); }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 3rem;
+      position: relative;
+    }
+
+    .hero-number {
+      position: absolute;
+      top: 6rem; right: 3rem;
+      font-family: var(--font-head);
+      font-size: 12rem;
+      font-weight: 800;
+      color: var(--surface2);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .detail-row {
+      background: var(--surface);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+    }
+
+    .detail-row span:first-child { color: var(--muted); }
+    .detail-row span:last-child { color: var(--accent); }
+
+    /* EXPERIENCE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .timeline-item {
+      background: var(--surface);
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      transition: background 0.2s;
+    }
+
+    .timeline-item:hover { background: var(--surface2); }
+
+    .timeline-period {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-top: 0.25rem;
+    }
+
+    .timeline-role {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-company {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .skill-card {
+      background: var(--surface);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .skill-card:hover { background: var(--surface2); }
+
+    .skill-category {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .project-card:hover { background: var(--surface2); }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag { animation: fadeUp 0.6s ease both; }
+    .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-title { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 5rem; }
+      .hero-left { padding: 3rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-right { padding: 2rem 1.5rem; }
+      .hero-number { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">BB</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work-projects">Work Projects</a></li>
+      <li><a href="#personal-projects">Personal Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">// Portfolio</div>
+      <h1 class="hero-name">Bartosz<span>Borowski</span></h1>
+      <p class="hero-title">IT Lead · Duchy Homes Ltd</p>
+      <a href="#about" class="hero-cta">View My Work →</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-number">01</div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Problems Solved</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">£</div>
+          <div class="stat-label">Area of Focus — Cost Saving</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">UK</div>
+          <div class="stat-label">Based</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">01 — About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm <strong>Bartosz Borowski</strong>, an IT Lead based in the UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
+        <p>At <strong>Duchy Homes Ltd</strong>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth.</p>
+        <p>I enjoy solving complex problems, automating wherever possible, and building systems that just work. Outside of work I run a home lab where I explore new technologies before they hit the enterprise.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-row"><span>Role</span><span>IT Lead</span></div>
+        <div class="detail-row"><span>Company</span><span>Duchy Homes Ltd</span></div>
+        <div class="detail-row"><span>Location</span><span>United Kingdom</span></div>
+        <div class="detail-row"><span>Focus</span><span>Infrastructure & Security</span></div>
+        <div class="detail-row"><span>Status</span><span>Open to connect</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">02 — Work Experience</div>
+    <div class="section-title">Where I've<br/>Worked</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-period">Current</div>
+        <div>
+          <div class="timeline-role">IT Lead</div>
+          <div class="timeline-company">Duchy Homes Ltd</div>
+          <div class="timeline-desc">Leading all IT operations, infrastructure, and technology strategy across the organisation. Responsible for network architecture, security posture, vendor management, and digital transformation initiatives.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Previous</div>
+        <div>
+          <div class="timeline-role">IT Role</div>
+          <div class="timeline-company">Previous Company</div>
+          <div class="timeline-desc">Add your previous experience here — role, responsibilities, and key achievements.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">03 — Skills</div>
+    <div class="section-title">Professional<br/>Highlights</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category">Infrastructure</div>
+        <div class="skill-name">Network & Systems</div>
+        <div class="skill-tags">
+          <span class="tag">UniFi</span>
+          <span class="tag">VLANs</span>
+          <span class="tag">Firewalls</span>
+          <span class="tag">VPN</span>
+          <span class="tag">DNS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Cloud & Hosting</div>
+        <div class="skill-name">Cloud Platforms</div>
+        <div class="skill-tags">
+          <span class="tag">Cloudflare</span>
+          <span class="tag">Zero Trust</span>
+          <span class="tag">CDN</span>
+          <span class="tag">Tunnels</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Security</div>
+        <div class="skill-name">Cybersecurity</div>
+        <div class="skill-tags">
+          <span class="tag">SSL/TLS</span>
+          <span class="tag">2FA/MFA</span>
+          <span class="tag">Access Control</span>
+          <span class="tag">Hardening</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Automation</div>
+        <div class="skill-name">Home & IT Automation</div>
+        <div class="skill-tags">
+          <span class="tag">Home Assistant</span>
+          <span class="tag">Scripting</span>
+          <span class="tag">Integrations</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Leadership</div>
+        <div class="skill-name">IT Management</div>
+        <div class="skill-tags">
+          <span class="tag">Strategy</span>
+          <span class="tag">Vendor Management</span>
+          <span class="tag">Budgeting</span>
+          <span class="tag">Procurement</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Support</div>
+        <div class="skill-name">End User & Operations</div>
+        <div class="skill-tags">
+          <span class="tag">Helpdesk</span>
+          <span class="tag">ITSM</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Training</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK PROJECTS -->
+  <section id="work-projects">
+    <div class="section-label">04 — Work Projects</div>
+    <div class="section-title">Professional<br/>Highlights</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-type">Professional</div>
+        <div class="project-title">Add Your Work Project</div>
+        <div class="project-desc">Describe a key project you led or contributed to at work. What was the challenge, what did you build, and what was the outcome?</div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Professional</div>
+        <div class="project-title">Add Your Work Project</div>
+        <div class="project-desc">Another professional highlight — an infrastructure rollout, security initiative, digital transformation, or process improvement.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL PROJECTS -->
+  <section id="personal-projects">
+    <div class="section-label">05 — Personal Projects</div>
+    <div class="section-title">Personal<br/>Highlights</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-type">Personal</div>
+        <div class="project-title">Home Lab & Automation</div>
+        <div class="project-desc">Built a fully automated smart home setup using Home Assistant, secured behind Cloudflare Zero Trust tunnels with no open ports. Integrated solar, EV charging, and energy monitoring.</div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Personal</div>
+        <div class="project-title">Add Personal Project</div>
+        <div class="project-desc">Another personal project — homelab, self-hosted tools, networking experiments, or anything else you've built in your own time.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Bartosz Borowski</p>
+    <a href="mailto:your@email.com">Get In Touch →</a>
+  </footer>
+
+</body>
+</html>
