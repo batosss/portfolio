@@ -14,7 +14,7 @@
       --accent: #5117e3;
       --accent2: #6b2ff5;
       --text: #1a1a2e;
-      --muted: #7c7c8f;
+      --muted: #4a4a62;
       --font-head: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     }
@@ -42,7 +42,7 @@
       align-items: center;
       padding: 1.2rem 3rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(245,243,255,0.90);
+      background: rgba(245,243,255,0.95);
       backdrop-filter: blur(12px);
     }
 
@@ -62,10 +62,11 @@
     }
 
     .nav-links a {
-      color: var(--muted);
+      color: #3a3a52;
       text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
@@ -124,8 +125,9 @@
 
     .hero-title {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--muted);
+      font-size: 0.9rem;
+      color: #4a4a62;
+      font-weight: 500;
       letter-spacing: 0.1em;
       margin-bottom: 3rem;
       border-left: 2px solid var(--accent);
@@ -194,8 +196,9 @@
     }
 
     .stat-label {
-      font-size: 0.7rem;
-      color: var(--muted);
+      font-size: 0.72rem;
+      color: #4a4a62;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-top: 0.25rem;
@@ -210,7 +213,8 @@
     }
 
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--accent);
@@ -244,14 +248,15 @@
     }
 
     .about-text p {
-      color: var(--muted);
+      color: #4a4a62;
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 0.97rem;
+      line-height: 1.8;
     }
 
     .about-text p strong {
       color: var(--text);
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .about-details {
@@ -267,11 +272,11 @@
       padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
-    .detail-row span:first-child { color: var(--muted); }
-    .detail-row span:last-child { color: var(--accent); }
+    .detail-row span:first-child { color: #5a5a72; font-weight: 500; }
+    .detail-row span:last-child { color: var(--accent); font-weight: 500; }
 
     /* EXPERIENCE */
     .timeline {
@@ -294,9 +299,10 @@
     .timeline-item:hover { background: var(--surface2); }
 
     .timeline-period {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
-      color: var(--muted);
+      color: #5a5a72;
       text-transform: uppercase;
       padding-top: 0.25rem;
     }
@@ -310,16 +316,17 @@
     }
 
     .timeline-company {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--accent);
+      font-weight: 500;
       margin-bottom: 0.75rem;
       letter-spacing: 0.05em;
     }
 
     .timeline-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.7;
+      font-size: 0.9rem;
+      color: #4a4a62;
+      line-height: 1.75;
     }
 
     /* SKILLS */
@@ -340,7 +347,8 @@
     .skill-card:hover { background: var(--surface2); }
 
     .skill-category {
-      font-size: 0.65rem;
+      font-size: 0.67rem;
+      font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -352,6 +360,7 @@
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
+      color: var(--text);
     }
 
     .skill-tags {
@@ -361,11 +370,12 @@
     }
 
     .tag {
-      font-size: 0.65rem;
+      font-size: 0.67rem;
+      font-weight: 500;
       letter-spacing: 0.08em;
       padding: 0.25rem 0.6rem;
       border: 1px solid var(--border);
-      color: var(--muted);
+      color: #4a4a62;
       text-transform: uppercase;
     }
 
@@ -402,7 +412,8 @@
     .project-card:hover::before { opacity: 1; }
 
     .project-type {
-      font-size: 0.65rem;
+      font-size: 0.67rem;
+      font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -415,12 +426,13 @@
       font-weight: 700;
       margin-bottom: 0.75rem;
       line-height: 1.2;
+      color: var(--text);
     }
 
     .project-desc {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.7;
+      font-size: 0.9rem;
+      color: #4a4a62;
+      line-height: 1.75;
     }
 
     /* FOOTER */
@@ -435,15 +447,17 @@
     }
 
     footer p {
-      font-size: 0.75rem;
-      color: var(--muted);
+      font-size: 0.78rem;
+      color: #5a5a72;
+      font-weight: 500;
       letter-spacing: 0.05em;
     }
 
     footer a {
       color: var(--accent);
       text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -563,7 +577,7 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-label">03 — Skills</div>
-    <div class="section-title">Professional<br/>Highlights</div>
+    <div class="section-title">Professional<br/>Skills</div>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-category">Infrastructure</div>
@@ -597,15 +611,6 @@
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Automation</div>
-        <div class="skill-name">Home & IT Automation</div>
-        <div class="skill-tags">
-          <span class="tag">Home Assistant</span>
-          <span class="tag">Scripting</span>
-          <span class="tag">Integrations</span>
-        </div>
-      </div>
-      <div class="skill-card">
         <div class="skill-category">Leadership</div>
         <div class="skill-name">IT Management</div>
         <div class="skill-tags">
@@ -625,13 +630,23 @@
           <span class="tag">Training</span>
         </div>
       </div>
+      <div class="skill-card">
+        <div class="skill-category">Compliance</div>
+        <div class="skill-name">Governance & Risk</div>
+        <div class="skill-tags">
+          <span class="tag">Policies</span>
+          <span class="tag">Audits</span>
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">GDPR</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- WORK PROJECTS -->
   <section id="work-projects">
     <div class="section-label">04 — Work Projects</div>
-    <div class="section-title">Professional<br/>Highlights</div>
+    <div class="section-title">Project<br/>Highlights</div>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-type">Professional</div>
