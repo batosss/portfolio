@@ -72,7 +72,7 @@
 
     .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: auto; }
     .stat { background: var(--surface); padding: 1.5rem; }
-    .stat-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; display: flex; align-items: center; min-height: 2rem; }
     .stat-label { font-size: 0.68rem; color: #4a4a62; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
 
     /* SECTIONS */
@@ -244,11 +244,26 @@
           <div class="stat-label">Based</div>
         </div>
         <div class="stat">
-          <div class="stat-num">🚗</div>
+          <div class="stat-num">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="15.5" stroke="#5117e3" stroke-width="2.2"/>
+              <circle cx="18" cy="18" r="4" stroke="#5117e3" stroke-width="2.2"/>
+              <line x1="18" y1="14" x2="18" y2="2.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="18" y1="14" x2="6" y2="21.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="18" y1="14" x2="30" y2="21.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="stat-label">Full UK Driving Licence</div>
         </div>
         <div class="stat">
-          <div class="stat-num">✅</div>
+          <div class="stat-num">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="15.5" stroke="#5117e3" stroke-width="2.2"/>
+              <ellipse cx="18" cy="18" rx="6" ry="15.5" stroke="#5117e3" stroke-width="2.2"/>
+              <line x1="2.5" y1="12" x2="33.5" y2="12" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="2.5" y1="24" x2="33.5" y2="24" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="stat-label">Indefinite Leave to Remain</div>
         </div>
       </div>
@@ -517,30 +532,30 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <div class="project-type">Personal · Home Lab</div>
+        <div class="project-type">Personal · Home Server</div>
         <div class="project-title">Self-Hosted Plex Media Server</div>
-        <div class="project-desc">Built and maintain a self-hosted Plex media server running on dedicated home lab hardware. Manages a personal media library with remote access enabled securely through Cloudflare Tunnels — no open ports required.</div>
+        <div class="project-desc">Self-built SFF home server running since 2021 on Ubuntu 24.04 LTS. Hardware selected specifically for 4K Dolby Vision / HDR transcoding via Intel QuickSync. Accessible remotely through a Cloudflare Tunnel — no open ports.</div>
         <button class="find-out-more" onclick="openModal('modal-plex')">Find Out More <span class="arrow">→</span></button>
       </div>
 
       <div class="project-card">
         <div class="project-type">Personal · Home Lab</div>
-        <div class="project-title">Self-Hosted Home Assistant</div>
-        <div class="project-desc">Running a full Home Assistant installation to automate and monitor the home environment. Integrates solar monitoring, EV charging, and energy dashboards — all exposed securely via Cloudflare Zero Trust with no open firewall ports.</div>
+        <div class="project-title">AI-Powered Home Assistant Smart Home</div>
+        <div class="project-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Octopus Energy, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home. Driven by self-written YAML automations for autonomous solar, battery, and grid optimisation.</div>
         <button class="find-out-more" onclick="openModal('modal-ha')">Find Out More <span class="arrow">→</span></button>
       </div>
 
       <div class="project-card">
         <div class="project-type">Personal · Home Lab</div>
         <div class="project-title">Self-Managed UniFi Home Network</div>
-        <div class="project-desc">Designed and manage a home UniFi network that underpins all home lab services. VLAN-segmented, self-hosted UniFi Network Application, and configured to provide the reliable infrastructure on which Plex, Home Assistant, and remote access all depend.</div>
+        <div class="project-desc">Self-managed UniFi network with a static public IP, underpinning all home lab services. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels. Self-hosted UniFi Network Application for full local control.</div>
         <button class="find-out-more" onclick="openModal('modal-unifi')">Find Out More <span class="arrow">→</span></button>
       </div>
 
       <div class="project-card">
         <div class="project-type">Personal · Home Lab</div>
         <div class="project-title">Cloudflare Tunnels — Secure Remote Access</div>
-        <div class="project-desc">All home lab services (Plex and Home Assistant) are exposed to the internet exclusively via Cloudflare Tunnels and Zero Trust access policies. No ports are open on the home router — all traffic routes through Cloudflare's edge network.</div>
+        <div class="project-desc">Evolved from DuckDNS with open ports → own domain on Cloudflare → Cloudflare Tunnels with zero open ports. All home lab services run exclusively through Cloudflare's edge with Zero Trust access policies enforced.</div>
         <button class="find-out-more" onclick="openModal('modal-cf')">Find Out More <span class="arrow">→</span></button>
       </div>
 
@@ -700,18 +715,18 @@
   <div class="modal-overlay" id="modal-plex" onclick="handleOverlayClick(event, 'modal-plex')">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-type">Personal · Home Lab</div>
+        <div class="modal-type">Personal · Home Server</div>
         <div class="modal-title">Self-Hosted Plex Media Server</div>
         <button class="modal-close" onclick="closeModal('modal-plex')">✕ Tap to close</button>
       </div>
       <div class="modal-body">
-        <p>Running a self-hosted Plex Media Server on dedicated home lab hardware to serve a personal media library locally and remotely — without relying on third-party streaming services or cloud storage.</p>
-        <h4>Setup</h4>
-        <p>Plex runs on a Linux-based home server with local storage attached for the media library. The server is integrated into the home UniFi network on its own VLAN, keeping media traffic logically separated from other home devices. Transcoding is handled locally, with hardware acceleration enabled where supported by the host hardware.</p>
+        <p>A self-built SFF (Small Form Factor) home server that has been running continuously since 2021. Built from scratch with hardware carefully selected for the specific demands of 4K Dolby Vision and HDR video transcoding — the key requirement being Intel QuickSync hardware acceleration, which allows high-bitrate 4K streams to be transcoded in real time without taxing the CPU.</p>
+        <h4>Software & OS</h4>
+        <p>The server runs Ubuntu 24.04 LTS as the host operating system, providing a stable, long-term supported Linux base. Plex Media Server runs as a background service, managing the media library and handling all local and remote playback requests. There are no VLANs on the home network — the server sits on the flat network alongside other devices, with access controlled at the firewall and tunnel level rather than through network segmentation.</p>
         <h4>Remote Access</h4>
-        <p>Remote access to Plex is handled entirely through a Cloudflare Tunnel — there are no open ports on the home router. All traffic routes through Cloudflare's edge network, with Zero Trust access policies applied to control who can reach the service. This approach eliminates the attack surface that would otherwise be introduced by exposing a port directly to the internet.</p>
+        <p>Remote access is handled entirely via a Cloudflare Tunnel — there are no open ports on the home router. The cloudflared daemon on the server maintains a persistent outbound connection to Cloudflare's edge, through which all remote Plex traffic is routed. This eliminates the need for port forwarding, dynamic DNS, or any direct internet exposure of the server.</p>
         <div class="modal-tags">
-          <span class="tag">Plex</span><span class="tag">Linux</span><span class="tag">Home Server</span><span class="tag">Cloudflare Tunnel</span><span class="tag">Zero Trust</span><span class="tag">VLAN</span><span class="tag">No Open Ports</span>
+          <span class="tag">Plex</span><span class="tag">SFF Build</span><span class="tag">Intel QuickSync</span><span class="tag">4K DV/HDR</span><span class="tag">Ubuntu 24.04 LTS</span><span class="tag">Cloudflare Tunnel</span><span class="tag">No Open Ports</span><span class="tag">Since 2021</span>
         </div>
       </div>
     </div>
@@ -722,17 +737,19 @@
     <div class="modal">
       <div class="modal-header">
         <div class="modal-type">Personal · Home Lab</div>
-        <div class="modal-title">Self-Hosted Home Assistant</div>
+        <div class="modal-title">AI-Powered Home Assistant Smart Home</div>
         <button class="modal-close" onclick="closeModal('modal-ha')">✕ Tap to close</button>
       </div>
       <div class="modal-body">
-        <p>Running a full Home Assistant installation as the central automation and monitoring hub for the home. Home Assistant is self-hosted on dedicated hardware and integrates a range of smart home devices, energy systems, and dashboards into a single unified platform.</p>
-        <h4>Integrations</h4>
-        <p>Key integrations include solar energy monitoring, EV charger control and scheduling, and whole-home energy dashboards that track real-time consumption, generation, and grid export. Automations are built around energy pricing, solar output, and time-of-use patterns to maximise the use of self-generated power.</p>
+        <p>A self-hosted Home Assistant installation that serves as the central automation hub for the home — powered by Claude API for energy analysis, forecasting, and recommendations. The system is built around maximising solar self-consumption, autonomous energy arbitrage, and optimising battery and grid usage to maximise return on investment from the installed energy systems.</p>
+        <h4>Active Integrations</h4>
+        <p>SolisCloud API (solar inverter & battery), Octopus Energy API (smart tariff & Agile pricing), MyEnergi Zappi API (EV charger control), Tesla Fleet API (vehicle state & charging), Solar Forecast API (next-day generation predictions), Google API, Zigbee2MQTT (local Zigbee device control), and Thread/Google Home integration for smart devices.</p>
+        <h4>Automations & AI</h4>
+        <p>All logic is built in self-written YAML automations that run entirely locally. These automations coordinate charging schedules, battery dispatch, export decisions, and EV charging windows based on real-time solar output, Agile tariff pricing, weather forecasts, and battery state of charge. Claude API is integrated to provide natural language energy analysis, summarise daily performance, and surface recommendations — adding an AI reasoning layer on top of the raw sensor data.</p>
         <h4>Remote Access</h4>
-        <p>Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust access policies enforced — meaning no ports are open on the home router and access is gated behind identity verification. This provides the same secure remote access model used for Plex, keeping the entire home lab reachable without exposing it to the open internet.</p>
+        <p>Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust policies enforced — no ports open, identity-gated access at Cloudflare's edge.</p>
         <div class="modal-tags">
-          <span class="tag">Home Assistant</span><span class="tag">Solar Monitoring</span><span class="tag">EV Charging</span><span class="tag">Energy Dashboard</span><span class="tag">Cloudflare Tunnel</span><span class="tag">Zero Trust</span><span class="tag">Automation</span>
+          <span class="tag">Home Assistant</span><span class="tag">Claude API</span><span class="tag">SolisCloud</span><span class="tag">Octopus Energy</span><span class="tag">Zappi API</span><span class="tag">Tesla Fleet</span><span class="tag">Zigbee2MQTT</span><span class="tag">Solar Forecast</span><span class="tag">YAML Automations</span><span class="tag">Energy Arbitrage</span><span class="tag">Cloudflare Tunnel</span>
         </div>
       </div>
     </div>
@@ -747,13 +764,13 @@
         <button class="modal-close" onclick="closeModal('modal-unifi')">✕ Tap to close</button>
       </div>
       <div class="modal-body">
-        <p>Designed and self-manage a home network built on Ubiquiti UniFi hardware — the same platform used in professional environments. This network forms the foundation on which all home lab services run, providing the reliability, performance, and segmentation needed to host Plex, Home Assistant, and Cloudflare Tunnels without interference from general home traffic.</p>
+        <p>A self-managed home network built on Ubiquiti UniFi hardware, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
         <h4>Architecture</h4>
-        <p>The network is VLAN-segmented to isolate home lab services, IoT devices, and general home traffic from one another. The UniFi Network Application is self-hosted rather than cloud-managed, giving full local control without any dependency on Ubiquiti's cloud infrastructure. Firewall rules are configured to enforce traffic flow between VLANs based on need, rather than allowing open communication by default.</p>
-        <h4>Why It Matters</h4>
-        <p>Running a self-managed UniFi network at home serves as a practical extension of professional skills — the same UniFi knowledge used to design and manage enterprise networks at Duchy Homes is applied and validated here first. It also provides a stable, production-like environment for testing configurations before they're deployed in a business context.</p>
+        <p>The network runs as a flat network without VLAN segmentation — a deliberate choice for the home environment where complexity is managed differently than in an enterprise context. Security is instead enforced through Zero Trust firewall rules that control traffic flows based on identity and destination rather than network segment, combined with Cloudflare Tunnels that eliminate the need for any inbound port exposure.</p>
+        <h4>Management</h4>
+        <p>The UniFi Network Application is self-hosted locally on the Plex/home server rather than relying on Ubiquiti's cloud management infrastructure. This gives full control over the network without any cloud dependency, and mirrors the self-hosted approach used at Duchy Homes. It also provides a practical home environment for testing UniFi configurations before deploying them in a professional context.</p>
         <div class="modal-tags">
-          <span class="tag">UniFi</span><span class="tag">VLANs</span><span class="tag">Self-Hosted Controller</span><span class="tag">Firewall Rules</span><span class="tag">IoT Segmentation</span><span class="tag">Home Lab</span>
+          <span class="tag">UniFi</span><span class="tag">Static Public IP</span><span class="tag">Self-Hosted Controller</span><span class="tag">Zero Trust Firewall</span><span class="tag">Cloudflare Tunnels</span><span class="tag">No VLANs</span><span class="tag">Home Lab</span>
         </div>
       </div>
     </div>
@@ -768,13 +785,15 @@
         <button class="modal-close" onclick="closeModal('modal-cf')">✕ Tap to close</button>
       </div>
       <div class="modal-body">
-        <p>All externally accessible home lab services — Plex and Home Assistant — are exposed to the internet exclusively via Cloudflare Tunnels. No ports are open on the home router. All inbound traffic routes through Cloudflare's global edge network, which handles TLS termination, DDoS protection, and access enforcement before any request reaches the home network.</p>
-        <h4>How It Works</h4>
-        <p>The cloudflared daemon runs on the home server and maintains persistent outbound connections to Cloudflare's edge. Incoming requests to the configured hostnames are routed through these tunnels back to the relevant local service. Because the connection is outbound-initiated, there is no need to expose any port or configure dynamic DNS — Cloudflare handles routing entirely.</p>
-        <h4>Zero Trust Access</h4>
-        <p>Services are further protected by Cloudflare Zero Trust access policies, which enforce identity verification before a request can reach the tunnel. This means that even if a hostname is discovered, unauthenticated access is blocked at Cloudflare's edge — not just at the application level. The result is a secure, zero-port-exposure remote access architecture that applies the same Zero Trust principles used in enterprise environments to a home lab context.</p>
+        <p>Remote access to home lab services has gone through three distinct generations, each driven by a better understanding of the security trade-offs involved — evolving from a quick free solution into a properly engineered zero-exposure architecture.</p>
+        <h4>Generation 1 — DuckDNS</h4>
+        <p>Started with DuckDNS as a free dynamic DNS solution, with ports forwarded on the home router to reach Plex and Home Assistant. Simple and effective to set up, but required open inbound ports on the public IP — a direct attack surface that became increasingly uncomfortable as the services matured.</p>
+        <h4>Generation 2 — Own Domain on Cloudflare</h4>
+        <p>Migrated to a personal domain hosted on Cloudflare DNS, with Cloudflare acting as a proxy in front of the services. This added TLS termination and hid the origin IP, but inbound ports were still open on the router — traffic was just better obscured.</p>
+        <h4>Generation 3 — Cloudflare Tunnels (Current)</h4>
+        <p>The current setup uses Cloudflare Tunnels exclusively. The cloudflared daemon on the home server maintains persistent outbound connections to Cloudflare's edge — there are no open ports on the router at all. All inbound traffic for Plex and Home Assistant routes through Cloudflare, with Zero Trust access policies enforcing identity verification before any request reaches the tunnel. The result is a genuinely zero-exposure architecture: no open ports, no origin IP visibility, and identity-gated access at the edge.</p>
         <div class="modal-tags">
-          <span class="tag">Cloudflare Tunnels</span><span class="tag">cloudflared</span><span class="tag">Zero Trust</span><span class="tag">No Open Ports</span><span class="tag">TLS Termination</span><span class="tag">DDoS Protection</span><span class="tag">Identity Enforcement</span>
+          <span class="tag">Cloudflare Tunnels</span><span class="tag">cloudflared</span><span class="tag">Zero Trust</span><span class="tag">No Open Ports</span><span class="tag">DuckDNS → CF DNS → CF Tunnel</span><span class="tag">TLS Termination</span><span class="tag">Identity Enforcement</span>
         </div>
       </div>
     </div>
