@@ -38,19 +38,6 @@
   /* ============ STRUCTURE ============ */
   .wrap{max-width:1240px;margin:0 auto;padding:0 24px;}
 
-  /* ============ BACK LINK ============ */
-  .backbar{
-    border-bottom:var(--line) solid var(--ink);
-    background:var(--ink);
-    color:var(--bg);
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-  }
-  .backbar a{display:inline-block;padding:10px 24px;transition:none;}
-  .backbar a:hover{background:var(--acc);color:#fff;}
-
   /* ============ NAV ============ */
   nav{
     position:sticky;top:0;z-index:60;
@@ -269,6 +256,13 @@
   .btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink);}
   .btn .arrow{font-family:'Space Mono';font-weight:700;}
 
+  /* Other Projects button variant */
+  .btn-other{
+    background:var(--paper);
+    border:var(--line) solid var(--ink);
+  }
+  .btn-other:hover{background:var(--ink);color:var(--acc);}
+
   /* ============ MODALS ============ */
   .modal{
     position:fixed;inset:0;z-index:100;
@@ -310,6 +304,21 @@
   .modal-content p{font-size:15px;line-height:1.7;margin-bottom:18px;}
   .modal-content p b{color:var(--acc);background:var(--ink);padding:1px 6px;}
   .modal-content .chips{margin-top:26px;border-top:var(--line) solid var(--ink);padding-top:22px;}
+
+  /* Other Projects modal — scrollable list layout */
+  .other-proj-list{display:flex;flex-direction:column;gap:0;}
+  .op-item{
+    border-bottom:2px solid var(--ink);
+    padding:22px 24px;
+    transition:background .08s linear;
+  }
+  .op-item:last-child{border-bottom:none;}
+  .op-item:hover{background:var(--bg);}
+  .op-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;}
+  .op-title{font-family:'Archivo Black',sans-serif;font-size:1.05rem;text-transform:uppercase;line-height:1.1;}
+  .op-badge{font-family:'Archivo Black',sans-serif;background:var(--acc);color:var(--ink);padding:2px 8px;font-size:11px;white-space:nowrap;flex-shrink:0;}
+  .op-meta{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px;}
+  .op-desc{font-size:13px;line-height:1.6;color:var(--ink);opacity:.75;}
 
   /* ============ FOOTER ============ */
   footer{
@@ -445,15 +454,15 @@
     <div class="stats reveal">
       <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
       <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Problems Solved</span></div>
-      <div class="stat"><span class="stat-num">15%</span><span class="stat-label">IT Cost Reduction Delivered</span></div>
-      <div class="stat"><span class="stat-num">UK</span><span class="stat-label">Based</span></div>
+      <div class="stat"><span class="stat-num">20%+</span><span class="stat-label">IT Cost Reductions Delivered</span></div>
+      <div class="stat"><span class="stat-num">Leeds</span><span class="stat-label">UK Based</span></div>
       <div class="stat">
-        <svg class="stat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="4.5" y1="16.5" x2="9.4" y2="13.6"/><line x1="19.5" y1="16.5" x2="14.6" y2="13.6"/></svg>
-        <span class="stat-label">Full UK Driving Licence</span>
+        <svg class="stat-icon" viewBox="0 0 24 24"><path d="M12 3L4 7v5c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V7L12 3z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span class="stat-label">Cyber Essentials Certified</span>
       </div>
       <div class="stat">
         <svg class="stat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="4.5" y1="7" x2="19.5" y2="7"/><line x1="4.5" y1="17" x2="19.5" y2="17"/></svg>
-        <span class="stat-label">Indefinite Leave to Remain</span>
+        <span class="stat-label">Open to Connect</span>
       </div>
     </div>
   </div>
@@ -471,17 +480,16 @@
     </div>
     <div class="about-grid">
       <div class="about-paras reveal">
-        <p>I'm <b>Bartosz Borowski</b>, an IT Lead based in the UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
+        <p>I'm <b>Bartosz Borowski</b>, an IT Lead based in Leeds, UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
         <p>At <b>Duchy Homes Ltd</b>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth and optimise for cost.</p>
         <p>I enjoy solving complex problems, automating wherever possible, and building systems that just work. I follow the work of SpaceX, Anthropic, Tesla and FigureAI — organisations pushing the boundary of what's possible. Outside of IT, I'm interested in nutrition, fitness, mountain climbing, and US financial markets.</p>
       </div>
       <div class="detail-rows reveal">
         <div class="drow"><span class="k">Role</span><span class="v">IT Lead</span></div>
         <div class="drow"><span class="k">Company</span><span class="v">Duchy Homes Ltd</span></div>
-        <div class="drow"><span class="k">Location</span><span class="v">United Kingdom</span></div>
+        <div class="drow"><span class="k">Location</span><span class="v">Leeds, UK</span></div>
         <div class="drow"><span class="k">Focus</span><span class="v">Infrastructure &amp; Security</span></div>
-        <div class="drow"><span class="k">Right to Work</span><span class="v">Indefinite Leave to Remain</span></div>
-        <div class="drow"><span class="k">Driving</span><span class="v">Full UK Licence</span></div>
+        <div class="drow"><span class="k">Cyber Essentials</span><span class="v">Certified (×2 Audits)</span></div>
         <div class="drow"><span class="k">Status</span><span class="v">Open to connect</span></div>
       </div>
     </div>
@@ -506,7 +514,7 @@
         <span class="exp-co">Duchy Homes Ltd — Leeds</span>
       </div>
       <div class="exp-body">
-        <p>Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by ~15%, including a Sophos-to-Defender migration saving ~£6k/year, and AI-assisted internal tooling replacing 15 Adobe Acrobat Pro licences (~£3,800/year). Leading the company's Cyber Essentials compliance programme.</p>
+        <p>Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by 20%+, including a Sophos-to-Defender migration saving ~£6k/year, and AI-assisted internal tooling replacing 15 Adobe Acrobat Pro licences (~£3,800/year). Leading the company's Cyber Essentials compliance programme.</p>
         <div class="chips">
           <span class="chip">Microsoft 365 &amp; Intune</span><span class="chip">UniFi / SD-WAN</span><span class="chip">Azure / Entra ID</span><span class="chip">Cyber Essentials</span><span class="chip">Zero Trust</span><span class="chip">Cost Optimisation</span>
         </div>
@@ -701,6 +709,12 @@
       </div>
 
     </div>
+
+    <!-- Other Projects link -->
+    <div style="margin-top:32px;">
+      <button class="btn btn-other" style="max-width:340px;" onclick="openModal('m-other')">Other Projects &amp; Initiatives <span class="arrow">↓</span></button>
+    </div>
+
   </div>
 </section>
 
@@ -720,7 +734,7 @@
         <div class="proj-head"><span class="proj-type">Personal · Home Server</span><span class="proj-num">P1</span></div>
         <div class="proj-body">
           <div class="proj-title">Self-Hosted Plex Media Server</div>
-          <p class="proj-desc">Self-built SFF home server running since 2021 on Ubuntu 24.04 LTS. Hardware selected specifically for 4K Dolby Vision / HDR transcoding via Intel QuickSync. Accessible remotely through a Cloudflare Tunnel — no open ports.</p>
+          <p class="proj-desc">Self-built SFF home server running since 2021 on Ubuntu LTS (current release) for long-term security support. Hardware selected specifically for 4K Dolby Vision / HDR transcoding via Intel QuickSync. Accessible remotely through a Cloudflare Tunnel — no open ports.</p>
           <button class="btn" onclick="openModal('m-pp1')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -729,7 +743,7 @@
         <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P2</span></div>
         <div class="proj-body">
           <div class="proj-title">AI-Powered Home Assistant</div>
-          <p class="proj-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Octopus Energy, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home. Driven by self-written YAML automations for autonomous solar, battery, and grid optimisation.</p>
+          <p class="proj-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Intelligent Octopus Go, Saving Sessions, Free Energy Sessions, AxleVPP, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home.</p>
           <button class="btn" onclick="openModal('m-pp2')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -738,7 +752,7 @@
         <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P3</span></div>
         <div class="proj-body">
           <div class="proj-title">Self-Managed UniFi Home Network</div>
-          <p class="proj-desc">Self-managed UniFi network with a static public IP, underpinning all home lab services. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels. Self-hosted UniFi Network Application for full local control.</p>
+          <p class="proj-desc">Self-managed UniFi network built around a UDR7 router with a static public IP, managed via UniFi Site Manager. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels.</p>
           <button class="btn" onclick="openModal('m-pp3')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -763,7 +777,7 @@
       <div class="foot-name">Let's<br>Build<br><span>Something.</span></div>
       <a class="foot-cta" href="mailto:your@email.com">Get In Touch →</a>
     </div>
-    <div class="foot-copy">© 2026 Bartosz Borowski · IT Lead · United Kingdom</div>
+    <div class="foot-copy">© 2026 Bartosz Borowski · IT Lead · Leeds, UK</div>
   </div>
 </footer>
 
@@ -870,6 +884,73 @@
   </div>
 </div>
 
+<!-- OTHER PROJECTS MODAL -->
+<div class="modal" id="m-other" onclick="handleOverlayClick(event,'m-other')">
+  <div class="modal-box" style="max-width:860px;">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Additional Work</div><h3>Other Projects &amp; Initiatives</h3><div class="mmeta">Various Employers · 2021–Present</div></div>
+      <button class="mclose" onclick="closeModal('m-other')">×</button>
+    </div>
+    <div class="other-proj-list">
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Cyber Essentials Certification — Woodspeen Training</div>
+          <div class="op-badge">Woodspeen</div>
+        </div>
+        <div class="op-meta">2021 · IT Support Technician (Apprenticeship)</div>
+        <div class="op-desc">Guided Woodspeen Training through their first Cyber Essentials certification during an apprenticeship. Audited the existing environment, remediated gaps across patch management, MFA, and boundary firewalls, and produced the submission documentation. This formed the foundation for the company's ongoing security posture and IT lifecycle strategy.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Office 365 &amp; SharePoint Migration</div>
+          <div class="op-badge">Woodspeen</div>
+        </div>
+        <div class="op-meta">2021–2022 · IT Support Technician (Apprenticeship)</div>
+        <div class="op-desc">Led the migration from on-premises file servers and email systems to Microsoft 365 and SharePoint Online. Managed data migration, built the SharePoint site structure, trained staff, and overhauled the new starter and leaver process. Also transitioned the company from a legacy phone system to VoIP.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Multi-Site Autopilot &amp; Intune Rollout</div>
+          <div class="op-badge">Makehappen</div>
+        </div>
+        <div class="op-meta">2022–2023 · IT Support Technician</div>
+        <div class="op-desc">Deployed and managed Windows Autopilot and Intune across multiple UK office locations (Leeds, Manchester, Thetford, Cleckheaton, Liverpool). Standardised the device provisioning process, eliminating manual imaging. Also built internal SharePoint portals and overhauled Grandstream VoIP infrastructure.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">YubiKey MFA Rollout &amp; Citrix Beta Testing</div>
+          <div class="op-badge">BW Legal</div>
+        </div>
+        <div class="op-meta">2023 · 1st Line Support Engineer</div>
+        <div class="op-desc">Supported the company-wide rollout of YubiKey hardware MFA across a regulated legal environment, including device configuration, user training, and issue resolution. Additionally participated in structured beta testing of internally developed Citrix releases ahead of business-wide deployment, feeding findings back to the internal development team.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Open-Source Platform Deployments — SnipeIT, Zabbix, Zammad</div>
+          <div class="op-badge">Alpha Omega</div>
+        </div>
+        <div class="op-meta">2023–2024 · System Support Engineer</div>
+        <div class="op-desc">Designed and deployed three open-source management platforms to replace manual processes: SnipeIT for IT asset management, Zabbix for network and server monitoring with alerting, and Zammad as a customer-facing helpdesk ticketing system. All deployed on Linux (CentOS) infrastructure with custom configuration for client environments.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Cyber Essentials Programme — Duchy Homes Ltd</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">Ongoing · IT Lead</div>
+        <div class="op-desc">Leading Duchy Homes Ltd through the Cyber Essentials certification programme — the second organisation guided through this process across my career. Scope covers patch management, boundary firewalls, access control, malware protection, and secure configuration across all ~250 endpoints. Certification supports the company's supplier due diligence requirements and underpins the wider security posture improvements delivered across W1–W4.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- PP1 -->
 <div class="modal" id="m-pp1" onclick="handleOverlayClick(event,'m-pp1')">
   <div class="modal-box">
@@ -879,9 +960,10 @@
     </div>
     <div class="modal-content">
       <p>A self-built SFF (Small Form Factor) home server that has been running continuously since 2021. Built from scratch with hardware carefully selected for the specific demands of 4K Dolby Vision and HDR video transcoding — the key requirement being Intel QuickSync hardware acceleration, which allows high-bitrate 4K streams to be transcoded in real time without taxing the CPU.</p>
-      <p><b>Software &amp; OS</b>: The server runs Ubuntu 24.04 LTS as the host operating system, providing a stable, long-term supported Linux base. Plex Media Server runs as a background service, managing the media library and handling all local and remote playback requests. There are no VLANs on the home network — the server sits on the flat network alongside other devices, with access controlled at the firewall and tunnel level rather than through network segmentation.</p>
-      <p><b>Remote Access</b>: Remote access is handled entirely via a Cloudflare Tunnel — there are no open ports on the home router. The cloudflared daemon on the server maintains a persistent outbound connection to Cloudflare's edge, through which all remote Plex traffic is routed. This eliminates the need for port forwarding, dynamic DNS, or any direct internet exposure of the server.</p>
-      <div class="chips"><span class="chip">Plex</span><span class="chip">SFF Build</span><span class="chip">Intel QuickSync</span><span class="chip">4K DV/HDR</span><span class="chip">Ubuntu 24.04 LTS</span><span class="chip">Cloudflare Tunnel</span><span class="chip">No Open Ports</span><span class="chip">Since 2021</span></div>
+      <p><b>Software &amp; OS</b>: The server runs the current Ubuntu LTS release — always upgraded to the latest long-term support version to ensure ongoing security patches and kernel support throughout the hardware's lifetime. Plex Media Server runs as a background service managing the media library and handling all local and remote playback requests. Windows devices on the local network can access the media library directly via Samba shares, providing a seamless file-transfer experience without any additional software required.</p>
+      <p><b>Maintenance &amp; Efficiency</b>: The server is configured for largely autonomous operation. Unattended-upgrades handles automatic OS and security patching. Scheduled overnight reboots allow maintenance windows to be applied without manual intervention, and HDD spindown add-ons reduce power draw during idle periods — keeping running costs low over time.</p>
+      <p><b>Remote Access &amp; Security</b>: Remote access is handled entirely via a Cloudflare Tunnel — there are no open ports on the home router. The cloudflared daemon maintains a persistent outbound connection to Cloudflare's edge through which all remote Plex traffic is routed. SSH access is available but restricted to a limited number of local devices via Ubuntu UFW firewall rules, with no remote SSH exposure.</p>
+      <div class="chips"><span class="chip">Plex</span><span class="chip">SFF Build</span><span class="chip">Intel QuickSync</span><span class="chip">4K DV/HDR</span><span class="chip">Ubuntu LTS</span><span class="chip">Samba</span><span class="chip">Auto-Updates</span><span class="chip">HDD Spindown</span><span class="chip">Cloudflare Tunnel</span><span class="chip">No Open Ports</span><span class="chip">Since 2021</span></div>
     </div>
   </div>
 </div>
@@ -895,10 +977,10 @@
     </div>
     <div class="modal-content">
       <p>A self-hosted Home Assistant installation that serves as the central automation hub for the home — powered by Claude API for energy analysis, forecasting, and recommendations. The system is built around maximising solar self-consumption, autonomous energy arbitrage, and optimising battery and grid usage to maximise return on investment from the installed energy systems.</p>
-      <p><b>Active Integrations</b>: SolisCloud API (solar inverter &amp; battery), Octopus Energy API (smart tariff &amp; Agile pricing), MyEnergi Zappi API (EV charger control), Tesla Fleet API (vehicle state &amp; charging), Solar Forecast API (next-day generation predictions), Google API, Zigbee2MQTT (local Zigbee device control), and Thread/Google Home integration for smart devices.</p>
-      <p><b>Automations &amp; AI</b>: All logic is built in self-written YAML automations that run entirely locally. These automations coordinate charging schedules, battery dispatch, export decisions, and EV charging windows based on real-time solar output, Agile tariff pricing, weather forecasts, and battery state of charge. Claude API is integrated to provide natural language energy analysis, summarise daily performance, and surface recommendations — adding an AI reasoning layer on top of the raw sensor data.</p>
-      <p><b>Remote Access</b>: Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust policies enforced — no ports open, identity-gated access at Cloudflare's edge.</p>
-      <div class="chips"><span class="chip">Home Assistant</span><span class="chip">Claude API</span><span class="chip">SolisCloud</span><span class="chip">Octopus Energy</span><span class="chip">Zappi API</span><span class="chip">Tesla Fleet</span><span class="chip">Zigbee2MQTT</span><span class="chip">Solar Forecast</span><span class="chip">YAML Automations</span><span class="chip">Energy Arbitrage</span><span class="chip">Cloudflare Tunnel</span></div>
+      <p><b>Active Integrations</b>: SolisCloud API (solar inverter &amp; battery), Intelligent Octopus Go (smart overnight EV charging tariff), Octopus Saving Sessions (demand flexibility events), Octopus Free Energy Sessions (bonus free-energy windows), AxleVPP (event-based grid support battery dispatch), MyEnergi Zappi API (EV charger control), Tesla Fleet API (vehicle state &amp; charging), Solar Forecast API (next-day generation predictions), Google API, Zigbee2MQTT (local Zigbee device control), and Thread/Google Home integration for smart devices.</p>
+      <p><b>Automations &amp; AI</b>: All logic is built in self-written YAML automations that run entirely locally. These automations coordinate charging schedules, battery dispatch, export decisions, grid support event participation, and EV charging windows based on real-time solar output, tariff pricing, weather forecasts, and battery state of charge. Claude API is integrated to provide natural language energy analysis, summarise daily performance, and surface recommendations — adding an AI reasoning layer on top of the raw sensor data.</p>
+      <p><b>Remote Access &amp; Security</b>: Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust policies enforced — no ports open, identity-gated access at Cloudflare's edge. SSH access to the host is restricted to a limited number of local devices via Ubuntu UFW firewall rules.</p>
+      <div class="chips"><span class="chip">Home Assistant</span><span class="chip">Claude API</span><span class="chip">SolisCloud</span><span class="chip">Intelligent Octopus Go</span><span class="chip">Saving Sessions</span><span class="chip">Free Energy Sessions</span><span class="chip">AxleVPP</span><span class="chip">Zappi API</span><span class="chip">Tesla Fleet</span><span class="chip">Zigbee2MQTT</span><span class="chip">YAML Automations</span><span class="chip">Energy Arbitrage</span><span class="chip">Cloudflare Tunnel</span></div>
     </div>
   </div>
 </div>
@@ -911,10 +993,10 @@
       <button class="mclose" onclick="closeModal('m-pp3')">×</button>
     </div>
     <div class="modal-content">
-      <p>A self-managed home network built on Ubiquiti UniFi hardware, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
+      <p>A self-managed home network built on Ubiquiti UniFi hardware centred on a UDR7 router, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
       <p><b>Architecture</b>: The network runs as a flat network without VLAN segmentation — a deliberate choice for the home environment where complexity is managed differently than in an enterprise context. Security is instead enforced through Zero Trust firewall rules that control traffic flows based on identity and destination rather than network segment, combined with Cloudflare Tunnels that eliminate the need for any inbound port exposure.</p>
-      <p><b>Management</b>: The UniFi Network Application is self-hosted locally on the Plex/home server rather than relying on Ubiquiti's cloud management infrastructure. This gives full control over the network without any cloud dependency, and mirrors the self-hosted approach used at Duchy Homes. It also provides a practical home environment for testing UniFi configurations before deploying them in a professional context.</p>
-      <div class="chips"><span class="chip">UniFi</span><span class="chip">Static Public IP</span><span class="chip">Self-Hosted Controller</span><span class="chip">Zero Trust Firewall</span><span class="chip">Cloudflare Tunnels</span><span class="chip">No VLANs</span><span class="chip">Home Lab</span></div>
+      <p><b>Management via UniFi Site Manager</b>: The network is managed through UniFi Site Manager — Ubiquiti's self-managed cloud platform, included at no additional cost with UniFi hardware. Site Manager provides centralised visibility, remote access, and configuration management without introducing a third-party cloud dependency or recurring subscription. It represents strong value for money and mirrors the type of centralised management approach used in professional deployments. SSH access to network devices is available to a limited number of local devices only, controlled via UFW on the connected Ubuntu hosts.</p>
+      <div class="chips"><span class="chip">UniFi UDR7</span><span class="chip">Static Public IP</span><span class="chip">UniFi Site Manager</span><span class="chip">Zero Trust Firewall</span><span class="chip">Cloudflare Tunnels</span><span class="chip">No VLANs</span><span class="chip">Home Lab</span></div>
     </div>
   </div>
 </div>
