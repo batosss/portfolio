@@ -1,827 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bartosz Borowski — IT Lead</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #f5f3ff;
-      --surface: #ffffff;
-      --surface2: #f9f7ff;
-      --border: #e8e5f5;
-      --accent: #5117e3;
-      --accent2: #6b2ff5;
-      --text: #1a1a2e;
-      --muted: #4a4a62;
-      --font-head: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bartosz Borowski // IT Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e8e6e0;
+    --ink:#0a0a0a;
+    --acc:#ff5500;
+    --paper:#f4f2ec;
+    --line:4px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Mono',monospace;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(rgba(10,10,10,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(10,10,10,.025) 1px,transparent 1px);
+    background-size:32px 32px;
+  }
+  ::selection{background:var(--acc);color:#fff;}
+  h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;font-weight:400;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ============ STRUCTURE ============ */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px;}
+
+  /* ============ BACK LINK ============ */
+  .backbar{
+    border-bottom:var(--line) solid var(--ink);
+    background:var(--ink);
+    color:var(--bg);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .backbar a{display:inline-block;padding:10px 24px;transition:none;}
+  .backbar a:hover{background:var(--acc);color:#fff;}
+
+  /* ============ NAV ============ */
+  nav{
+    position:sticky;top:0;z-index:60;
+    background:var(--bg);
+    border-bottom:var(--line) solid var(--ink);
+  }
+  .nav-inner{display:flex;align-items:stretch;justify-content:space-between;}
+  .brand{
+    font-family:'Archivo Black',sans-serif;
+    font-size:28px;
+    padding:14px 0;
+    display:flex;align-items:center;gap:12px;
+  }
+  .brand .mono{
+    background:var(--ink);color:var(--bg);
+    padding:4px 10px;display:inline-block;
+  }
+  .brand .mono:hover{background:var(--acc);}
+  .brand-sub{font-family:'Space Mono';font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;line-height:1.2;}
+  .nav-links{display:flex;align-items:stretch;}
+  .nav-links a{
+    display:flex;align-items:center;
+    padding:0 18px;
+    font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    border-left:var(--line) solid var(--ink);
+    transition:none;
+  }
+  .nav-links a:hover{background:var(--ink);color:var(--acc);}
+  .menu-toggle{display:none;}
+
+  /* ============ TICKER ============ */
+  .ticker{
+    background:var(--acc);
+    color:var(--ink);
+    border-bottom:var(--line) solid var(--ink);
+    overflow:hidden;white-space:nowrap;
+    font-family:'Archivo Black',sans-serif;
+    text-transform:uppercase;
+    font-size:15px;
+    letter-spacing:.04em;
+  }
+  .ticker-track{display:inline-block;padding:8px 0;animation:scroll 32s linear infinite;}
+  .ticker-track span{padding:0 22px;}
+  .ticker-track span::before{content:"◆";color:var(--ink);margin-right:22px;font-size:10px;vertical-align:middle;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ============ HERO ============ */
+  .hero{padding:64px 0 48px;border-bottom:var(--line) solid var(--ink);position:relative;}
+  .hero-tag{
+    display:inline-block;
+    border:var(--line) solid var(--ink);
+    background:var(--paper);
+    padding:6px 14px;
+    font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    margin-bottom:28px;
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .hero h1{
+    font-size:clamp(3rem,12vw,9rem);
+    line-height:.86;
+    margin-bottom:24px;
+  }
+  .hero h1 .stroke{
+    -webkit-text-stroke:2px var(--ink);
+    color:transparent;
+  }
+  .hero h1 .fill{color:var(--acc);}
+  .hero-title{
+    font-weight:700;font-size:clamp(1rem,2.4vw,1.5rem);
+    text-transform:uppercase;letter-spacing:.04em;
+    border-top:var(--line) solid var(--ink);
+    border-bottom:var(--line) solid var(--ink);
+    padding:12px 0;
+    display:inline-block;
+    margin-bottom:24px;
+  }
+  .hero-title b{color:var(--acc);}
+  .hero-line{max-width:620px;font-size:17px;line-height:1.6;}
+
+  /* hero stats grid */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    border:var(--line) solid var(--ink);
+    margin-top:48px;
+    box-shadow:10px 10px 0 var(--ink);
+    background:var(--paper);
+  }
+  .stat{
+    padding:22px 16px;
+    border-right:var(--line) solid var(--ink);
+    transition:none;
+    display:flex;flex-direction:column;gap:6px;
+    min-height:120px;
+    justify-content:flex-end;
+  }
+  .stat:last-child{border-right:none;}
+  .stat:hover{background:var(--ink);color:var(--bg);}
+  .stat:hover .stat-num{color:var(--acc);}
+  .stat-num{font-family:'Archivo Black',sans-serif;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--ink);line-height:1;}
+  .stat:hover .stat-icon{stroke:var(--acc);}
+  .stat-icon{width:34px;height:34px;stroke:var(--ink);stroke-width:2.5;fill:none;}
+  .stat-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.25;}
+
+  /* ============ SECTION HEADERS ============ */
+  section{padding:72px 0;border-bottom:var(--line) solid var(--ink);}
+  .sec-head{display:flex;align-items:flex-start;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+  .sec-num{
+    font-family:'Archivo Black',sans-serif;
+    background:var(--ink);color:var(--acc);
+    font-size:clamp(2rem,5vw,3.6rem);
+    padding:8px 20px;
+    line-height:1;
+    box-shadow:8px 8px 0 var(--acc);
+  }
+  .sec-title{font-size:clamp(2rem,6vw,4rem);line-height:.9;}
+  .sec-meta{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:8px;opacity:.6;}
+
+  /* ============ ABOUT ============ */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;}
+  .about-paras p{font-size:18px;line-height:1.7;margin-bottom:22px;}
+  .about-paras p b{color:var(--acc);}
+  .about-paras p:last-child{margin-bottom:0;}
+  .detail-rows{border:var(--line) solid var(--ink);background:var(--paper);box-shadow:8px 8px 0 var(--ink);}
+  .drow{
+    display:flex;justify-content:space-between;gap:12px;
+    padding:14px 18px;
+    border-bottom:2px solid var(--ink);
+    font-size:13px;
+  }
+  .drow:last-child{border-bottom:none;}
+  .drow .k{font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px;opacity:.55;align-self:center;}
+  .drow .v{font-weight:700;text-align:right;}
+
+  /* ============ EXPERIENCE ============ */
+  .exp-item{
+    border:var(--line) solid var(--ink);
+    background:var(--paper);
+    margin-bottom:28px;
+    box-shadow:8px 8px 0 var(--ink);
+    transition:transform .08s linear,box-shadow .08s linear;
+  }
+  .exp-item:hover{transform:translate(-3px,-3px);box-shadow:14px 14px 0 var(--acc);}
+  .exp-top{
+    display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;
+    padding:20px 24px;
+    border-bottom:2px solid var(--ink);
+    background:var(--bg);
+  }
+  .exp-date{
+    font-family:'Archivo Black',sans-serif;font-size:13px;
+    background:var(--ink);color:var(--acc);
+    padding:6px 12px;letter-spacing:.02em;
+  }
+  .exp-role{font-family:'Archivo Black',sans-serif;font-size:clamp(1.1rem,2.4vw,1.6rem);text-transform:uppercase;flex:1;min-width:200px;}
+  .exp-co{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--acc);}
+  .exp-body{padding:22px 24px;}
+  .exp-body p{font-size:15px;line-height:1.65;margin-bottom:18px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    border:2px solid var(--ink);
+    padding:5px 11px;
+    font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    background:var(--bg);
+    transition:none;
+  }
+  .chip:hover{background:var(--ink);color:var(--acc);}
+
+  /* ============ SKILLS ============ */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:var(--line) solid var(--ink);box-shadow:10px 10px 0 var(--ink);background:var(--paper);}
+  .skill-card{
+    padding:26px 22px;
+    border-right:var(--line) solid var(--ink);
+    border-bottom:var(--line) solid var(--ink);
+    transition:none;
+  }
+  .skill-card:nth-child(3n){border-right:none;}
+  .skill-card:nth-child(n+4){border-bottom:none;}
+  .skill-card:hover{background:var(--ink);color:var(--bg);}
+  .skill-card:hover .chip{border-color:var(--bg);color:var(--bg);}
+  .skill-card:hover .chip:hover{background:var(--acc);border-color:var(--acc);color:var(--ink);}
+  .skill-cat{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:8px;}
+  .skill-name{font-family:'Archivo Black',sans-serif;font-size:1.35rem;text-transform:uppercase;margin-bottom:18px;line-height:1;}
+
+  /* ============ PROJECTS ============ */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .proj-card{
+    border:var(--line) solid var(--ink);
+    background:var(--paper);
+    display:flex;flex-direction:column;
+    box-shadow:8px 8px 0 var(--ink);
+    transition:transform .08s linear,box-shadow .08s linear;
+  }
+  .proj-card:hover{transform:translate(-3px,-3px);box-shadow:14px 14px 0 var(--acc);}
+  .proj-head{padding:16px 18px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg);}
+  .proj-type{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+  .proj-num{font-family:'Archivo Black',sans-serif;background:var(--acc);color:var(--ink);padding:3px 9px;font-size:13px;}
+  .proj-body{padding:20px 18px;flex:1;display:flex;flex-direction:column;}
+  .proj-title{font-family:'Archivo Black',sans-serif;font-size:1.15rem;text-transform:uppercase;line-height:1.05;margin-bottom:6px;}
+  .proj-meta{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;}
+  .proj-desc{font-size:13.5px;line-height:1.6;margin-bottom:20px;flex:1;}
+  .btn{
+    font-family:'Archivo Black',sans-serif;
+    text-transform:uppercase;
+    background:var(--acc);color:var(--ink);
+    border:var(--line) solid var(--ink);
+    padding:12px 16px;
+    font-size:13px;letter-spacing:.04em;
+    cursor:pointer;
+    box-shadow:5px 5px 0 var(--ink);
+    transition:transform .05s linear,box-shadow .05s linear,background .05s linear,color .05s linear;
+    width:100%;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .btn:hover{background:var(--ink);color:var(--acc);}
+  .btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink);}
+  .btn .arrow{font-family:'Space Mono';font-weight:700;}
+
+  /* ============ MODALS ============ */
+  .modal{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(10,10,10,.7);
+    display:none;
+    padding:32px 16px;
+    overflow-y:auto;
+  }
+  .modal.active{display:flex;align-items:flex-start;justify-content:center;animation:fade .12s linear;}
+  @keyframes fade{from{opacity:0;}to{opacity:1;}}
+  .modal-box{
+    background:var(--paper);
+    border:var(--line) solid var(--ink);
+    box-shadow:16px 16px 0 var(--acc);
+    max-width:780px;width:100%;
+    margin:auto;
+  }
+  .modal-top{
+    position:sticky;top:0;
+    background:var(--ink);color:var(--bg);
+    padding:18px 24px;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+    border-bottom:var(--line) solid var(--ink);
+    z-index:2;
+  }
+  .modal-top .mtype{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:6px;}
+  .modal-top h3{font-size:clamp(1.2rem,3.4vw,1.8rem);color:var(--bg);line-height:1;}
+  .modal-top .mmeta{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;opacity:.7;}
+  .mclose{
+    font-family:'Archivo Black',sans-serif;
+    background:var(--acc);color:var(--ink);
+    border:none;cursor:pointer;
+    width:40px;height:40px;flex-shrink:0;
+    font-size:20px;line-height:1;
+    transition:none;
+  }
+  .mclose:hover{background:var(--bg);}
+  .modal-content{padding:28px 24px;}
+  .modal-content p{font-size:15px;line-height:1.7;margin-bottom:18px;}
+  .modal-content p b{color:var(--acc);background:var(--ink);padding:1px 6px;}
+  .modal-content .chips{margin-top:26px;border-top:var(--line) solid var(--ink);padding-top:22px;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink);color:var(--bg);
+    border-bottom:none;
+    padding:64px 0 48px;
+  }
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px;}
+  .foot-name{font-family:'Archivo Black',sans-serif;font-size:clamp(2.4rem,8vw,5rem);text-transform:uppercase;line-height:.85;color:var(--bg);}
+  .foot-name span{color:var(--acc);}
+  .foot-cta{
+    font-family:'Archivo Black',sans-serif;text-transform:uppercase;
+    background:var(--acc);color:var(--ink);
+    border:var(--line) solid var(--bg);
+    padding:16px 24px;font-size:16px;
+    box-shadow:7px 7px 0 var(--bg);
+    transition:transform .05s linear,box-shadow .05s linear;
+    display:inline-block;
+  }
+  .foot-cta:hover{background:var(--bg);color:var(--ink);}
+  .foot-cta:active{transform:translate(7px,7px);box-shadow:0 0 0 var(--bg);}
+  .foot-copy{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:48px;opacity:.6;border-top:2px solid rgba(244,242,236,.2);padding-top:24px;}
+
+  /* ============ LOAD ANIMATION ============ */
+  .reveal{opacity:0;transform:translateY(24px);}
+  .reveal.in{opacity:1;transform:translateY(0);transition:opacity .4s cubic-bezier(.2,.8,.2,1),transform .4s cubic-bezier(.2,.8,.2,1);}
+  .hero .reveal{animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards;opacity:1;transform:none;}
+  @keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+  .hero-tag{animation-delay:.05s;}
+  .hero h1{animation-delay:.12s;}
+  .hero-title{animation-delay:.22s;}
+  .hero-line{animation-delay:.3s;}
+  .stats{animation-delay:.4s;}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:980px){
+    .stats{grid-template-columns:repeat(3,1fr);}
+    .stat:nth-child(3){border-right:none;}
+    .stat:nth-child(-n+3){border-bottom:var(--line) solid var(--ink);}
+    .skill-grid{grid-template-columns:repeat(2,1fr);}
+    .skill-card:nth-child(3n){border-right:var(--line) solid var(--ink);}
+    .skill-card:nth-child(2n){border-right:none;}
+    .skill-card:nth-child(n+4){border-bottom:var(--line) solid var(--ink);}
+    .skill-card:nth-child(n+5){border-bottom:none;}
+    .proj-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:760px){
+    .nav-links{
+      position:fixed;top:0;right:0;bottom:0;
+      width:75%;max-width:320px;
+      flex-direction:column;align-items:stretch;
+      background:var(--bg);
+      border-left:var(--line) solid var(--ink);
+      transform:translateX(100%);
+      transition:transform .18s cubic-bezier(.2,.8,.2,1);
+      padding-top:72px;z-index:55;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: linear-gradient(135deg, #f5f3ff 0%, #faf8ff 100%);
-      color: var(--text);
-      font-family: var(--font-mono);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{border-left:none;border-bottom:var(--line) solid var(--ink);padding:18px 24px;}
+    .menu-toggle{
+      display:flex;align-items:center;
+      font-family:'Archivo Black',sans-serif;
+      background:var(--ink);color:var(--acc);
+      border:none;cursor:pointer;
+      padding:0 22px;font-size:14px;text-transform:uppercase;
+      border-left:var(--line) solid var(--ink);
+      z-index:56;
     }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem;
-      border-bottom: 1px solid var(--border);
-      background: rgba(245,243,255,0.95);
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 1rem; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: #3a3a52; text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-      padding-top: 5rem; position: relative; overflow: hidden;
-    }
-    .hero::after {
-      content: ''; position: absolute; top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(81,23,227,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 4rem 3rem; border-right: 1px solid var(--border);
-    }
-    .hero-tag { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-    .hero-name { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; }
-    .hero-name span { display: block; color: var(--accent); }
-    .hero-title { font-family: var(--font-mono); font-size: 0.9rem; color: #4a4a62; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 3rem; border-left: 2px solid var(--accent); padding-left: 1rem; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--accent); color: #fff; padding: 0.9rem 2rem; font-family: var(--font-head); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; width: fit-content; transition: background 0.2s, transform 0.2s; }
-    .hero-cta:hover { background: var(--accent2); transform: translateX(4px); }
-
-    .hero-right { display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem 3rem; position: relative; }
-    .hero-number { position: absolute; top: 6rem; right: 3rem; font-family: var(--font-head); font-size: 12rem; font-weight: 800; color: #f0ebff; line-height: 1; user-select: none; pointer-events: none; }
-
-    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: auto; }
-    .stat { background: var(--surface); padding: 1.5rem; }
-    .stat-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; display: flex; align-items: center; min-height: 2rem; }
-    .stat-label { font-size: 0.68rem; color: #4a4a62; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
-
-    /* SECTIONS */
-    section { padding: 6rem 3rem; border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .section-title { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.05; margin-bottom: 3rem; }
-
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
-    .about-text p { color: #4a4a62; margin-bottom: 1.5rem; font-size: 0.97rem; line-height: 1.8; }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-    .about-details { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .detail-row { background: var(--surface); padding: 1rem 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; }
-    .detail-row span:first-child { color: #5a5a72; font-weight: 500; }
-    .detail-row span:last-child { color: var(--accent); font-weight: 500; }
-
-    /* EXPERIENCE */
-    .timeline { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .timeline-item { background: var(--surface); padding: 2rem 2.5rem; display: grid; grid-template-columns: 180px 1fr; gap: 2rem; transition: background 0.2s; }
-    .timeline-item:hover { background: var(--surface2); }
-    .timeline-period { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: #5a5a72; text-transform: uppercase; padding-top: 0.25rem; }
-    .timeline-role { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
-    .timeline-company { font-size: 0.82rem; color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
-    .timeline-desc { font-size: 0.9rem; color: #4a4a62; line-height: 1.75; }
-    .timeline-highlights { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .timeline-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; padding: 0.2rem 0.55rem; border: 1px solid var(--border); color: var(--accent); text-transform: uppercase; }
-
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .skill-card { background: var(--surface); padding: 2rem; transition: background 0.2s; }
-    .skill-card:hover { background: var(--surface2); }
-    .skill-category { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .skill-name { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { font-size: 0.67rem; font-weight: 500; letter-spacing: 0.08em; padding: 0.25rem 0.6rem; border: 1px solid var(--border); color: #4a4a62; text-transform: uppercase; }
-
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .project-card { background: var(--surface); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.2s; display: flex; flex-direction: column; }
-    .project-card:hover { background: var(--surface2); }
-    .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
-    .project-card:hover::before { opacity: 1; }
-    .project-type { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .project-meta { font-size: 0.72rem; color: #8a8a9e; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
-    .project-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; color: var(--text); }
-    .project-desc { font-size: 0.88rem; color: #4a4a62; line-height: 1.75; flex: 1; }
-    .find-out-more {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      margin-top: 1.5rem; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
-      cursor: pointer; border: none; background: none; padding: 0;
-      transition: gap 0.2s, color 0.2s;
-    }
-    .find-out-more:hover { gap: 0.75rem; color: var(--accent2); }
-    .find-out-more .arrow { transition: transform 0.2s; }
-    .find-out-more:hover .arrow { transform: translateX(3px); }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(20, 10, 40, 0.65);
-      backdrop-filter: blur(6px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 2rem;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-    .modal-overlay.active { opacity: 1; visibility: visible; }
-    .modal {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      max-width: 680px; width: 100%;
-      max-height: 85vh; overflow-y: auto;
-      position: relative;
-      transform: translateY(24px) scale(0.98);
-      transition: transform 0.35s ease;
-    }
-    .modal-overlay.active .modal { transform: translateY(0) scale(1); }
-    .modal-header {
-      padding: 2rem 2.5rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; background: var(--surface); z-index: 1;
-    }
-    .modal-type { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-    .modal-meta { font-size: 0.75rem; color: #8a8a9e; margin-bottom: 0.6rem; }
-    .modal-title { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--text); line-height: 1.2; }
-    .modal-close {
-      position: absolute; top: 1.5rem; right: 1.75rem;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted); cursor: pointer; border: none; background: none;
-      display: flex; align-items: center; gap: 0.4rem;
-      transition: color 0.2s;
-    }
-    .modal-close:hover { color: var(--accent); }
-    .modal-body { padding: 1.75rem 2.5rem 2.5rem; }
-    .modal-body p { font-size: 0.9rem; color: #4a4a62; line-height: 1.8; margin-bottom: 1.1rem; }
-    .modal-body p:last-child { margin-bottom: 0; }
-    .modal-body h4 { font-family: var(--font-head); font-size: 0.85rem; font-weight: 700; color: var(--text); margin: 1.4rem 0 0.5rem; letter-spacing: 0.03em; }
-    .modal-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-    footer p { font-size: 0.78rem; color: #5a5a72; font-weight: 500; letter-spacing: 0.05em; }
-    footer a { color: var(--accent); text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-tag { animation: fadeUp 0.6s ease both; }
-    .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-title { animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
-    .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 5rem; }
-      .hero-left { padding: 3rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
-      .hero-right { padding: 2rem 1.5rem; }
-      .hero-number { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      section { padding: 4rem 1.5rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-      .modal { max-height: 92vh; }
-      .modal-header { padding: 1.5rem 1.5rem 1rem; }
-      .modal-body { padding: 1.25rem 1.5rem 2rem; }
-    }
-  </style>
+    .menu-toggle:hover{background:var(--acc);color:var(--ink);}
+  }
+  @media(max-width:560px){
+    body{font-size:15px;}
+    .wrap{padding:0 16px;}
+    section{padding:48px 0;}
+    .stats{grid-template-columns:repeat(2,1fr);box-shadow:7px 7px 0 var(--ink);}
+    .stat{border-bottom:var(--line) solid var(--ink)!important;}
+    .stat:nth-child(2),.stat:nth-child(4){border-right:none;}
+    .stat:nth-child(5),.stat:nth-child(6){border-bottom:none!important;}
+    .skill-grid{grid-template-columns:1fr;}
+    .skill-card{border-right:none!important;border-bottom:var(--line) solid var(--ink)!important;}
+    .skill-card:last-child{border-bottom:none!important;}
+    .proj-grid{grid-template-columns:1fr;}
+    .sec-head{gap:14px;}
+    .hero{padding:44px 0 36px;}
+    .exp-top{padding:16px;}
+    .brand{font-size:22px;}
+  }
+  @media(max-width:380px){
+    .hero h1{font-size:2.6rem;}
+    .foot-grid{flex-direction:column;align-items:flex-start;}
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">BB</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#work-projects">Work Projects</a></li>
-      <li><a href="#personal-projects">Personal Projects</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-left">
-      <div class="hero-tag">// Portfolio</div>
-      <h1 class="hero-name">Bartosz<span>Borowski</span></h1>
-      <p class="hero-title">IT Lead · Duchy Homes Ltd</p>
-      <a href="#about" class="hero-cta">View My Work →</a>
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="mono">BB</span>
+      <span class="brand-sub">Bartosz<br>Borowski</span>
+    </a>
+    <div style="display:flex;align-items:stretch;">
+      <div class="nav-links" id="navLinks">
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#experience" onclick="closeMenu()">Experience</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#work" onclick="closeMenu()">Work Projects</a>
+        <a href="#personal" onclick="closeMenu()">Personal Projects</a>
+      </div>
+      <button class="menu-toggle" id="menuBtn" onclick="toggleMenu()">Menu</button>
     </div>
-    <div class="hero-right">
-      <div class="hero-number">01</div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Problems Solved</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">15%</div>
-          <div class="stat-label">IT Cost Reduction Delivered</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">UK</div>
-          <div class="stat-label">Based</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="18" cy="18" r="15.5" stroke="#5117e3" stroke-width="2.2"/>
-              <circle cx="18" cy="18" r="4" stroke="#5117e3" stroke-width="2.2"/>
-              <line x1="18" y1="14" x2="18" y2="2.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="18" y1="14" x2="6" y2="21.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="18" y1="14" x2="30" y2="21.5" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="stat-label">Full UK Driving Licence</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="18" cy="18" r="15.5" stroke="#5117e3" stroke-width="2.2"/>
-              <ellipse cx="18" cy="18" rx="6" ry="15.5" stroke="#5117e3" stroke-width="2.2"/>
-              <line x1="2.5" y1="12" x2="33.5" y2="12" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="2.5" y1="24" x2="33.5" y2="24" stroke="#5117e3" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="stat-label">Indefinite Leave to Remain</div>
-        </div>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</span><span>PowerShell</span><span>Linux / CentOS</span>
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</span><span>PowerShell</span><span>Linux / CentOS</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="hero-tag reveal">Portfolio // 2026</span>
+    <h1 class="reveal"><span class="fill">Bartosz</span><br><span class="stroke">Borowski</span></h1>
+    <div class="hero-title reveal">IT Lead <b>·</b> Duchy Homes Ltd</div>
+    <p class="hero-line reveal">Building robust, efficient, and secure technology infrastructure. Leading the IT function — operations, security posture, and strategic decisions that support growth and optimise for cost.</p>
+
+    <div class="stats reveal">
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Problems Solved</span></div>
+      <div class="stat"><span class="stat-num">15%</span><span class="stat-label">IT Cost Reduction Delivered</span></div>
+      <div class="stat"><span class="stat-num">UK</span><span class="stat-label">Based</span></div>
+      <div class="stat">
+        <svg class="stat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="4.5" y1="16.5" x2="9.4" y2="13.6"/><line x1="19.5" y1="16.5" x2="14.6" y2="13.6"/></svg>
+        <span class="stat-label">Full UK Driving Licence</span>
+      </div>
+      <div class="stat">
+        <svg class="stat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="4.5" y1="7" x2="19.5" y2="7"/><line x1="4.5" y1="17" x2="19.5" y2="17"/></svg>
+        <span class="stat-label">Indefinite Leave to Remain</span>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label">01 — About Me</div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div>
+        <h2 class="sec-title">About</h2>
+        <div class="sec-meta">// Who · What · Where</div>
+      </div>
+    </div>
     <div class="about-grid">
-      <div class="about-text">
-        <p>I'm <strong>Bartosz Borowski</strong>, an IT Lead based in the UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
-        <p>At <strong>Duchy Homes Ltd</strong>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth and optimise for cost.</p>
+      <div class="about-paras reveal">
+        <p>I'm <b>Bartosz Borowski</b>, an IT Lead based in the UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
+        <p>At <b>Duchy Homes Ltd</b>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth and optimise for cost.</p>
         <p>I enjoy solving complex problems, automating wherever possible, and building systems that just work. I follow the work of SpaceX, Anthropic, Tesla and FigureAI — organisations pushing the boundary of what's possible. Outside of IT, I'm interested in nutrition, fitness, mountain climbing, and US financial markets.</p>
       </div>
-      <div class="about-details">
-        <div class="detail-row"><span>Role</span><span>IT Lead</span></div>
-        <div class="detail-row"><span>Company</span><span>Duchy Homes Ltd</span></div>
-        <div class="detail-row"><span>Location</span><span>United Kingdom</span></div>
-        <div class="detail-row"><span>Focus</span><span>Infrastructure & Security</span></div>
-        <div class="detail-row"><span>Right to Work</span><span>Indefinite Leave to Remain</span></div>
-        <div class="detail-row"><span>Driving</span><span>Full UK Licence</span></div>
-        <div class="detail-row"><span>Status</span><span>Open to connect</span></div>
+      <div class="detail-rows reveal">
+        <div class="drow"><span class="k">Role</span><span class="v">IT Lead</span></div>
+        <div class="drow"><span class="k">Company</span><span class="v">Duchy Homes Ltd</span></div>
+        <div class="drow"><span class="k">Location</span><span class="v">United Kingdom</span></div>
+        <div class="drow"><span class="k">Focus</span><span class="v">Infrastructure &amp; Security</span></div>
+        <div class="drow"><span class="k">Right to Work</span><span class="v">Indefinite Leave to Remain</span></div>
+        <div class="drow"><span class="k">Driving</span><span class="v">Full UK Licence</span></div>
+        <div class="drow"><span class="k">Status</span><span class="v">Open to connect</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">02 — Work Experience</div>
-    <div class="section-title">Where I've<br/>Worked</div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-period">Jan 2025 — Present</div>
-        <div>
-          <div class="timeline-role">IT Lead</div>
-          <div class="timeline-company">Duchy Homes Ltd — Leeds</div>
-          <div class="timeline-desc">Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by ~15%, including a Sophos-to-Defender migration saving ~£6k/year, and AI-assisted internal tooling replacing 15 Adobe Acrobat Pro licences (~£3,800/year). Leading the company's Cyber Essentials compliance programme.</div>
-          <div class="timeline-highlights">
-            <span class="timeline-tag">Microsoft 365 & Intune</span>
-            <span class="timeline-tag">UniFi / SD-WAN</span>
-            <span class="timeline-tag">Azure / Entra ID</span>
-            <span class="timeline-tag">Cyber Essentials</span>
-            <span class="timeline-tag">Zero Trust</span>
-            <span class="timeline-tag">Cost Optimisation</span>
-          </div>
-        </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div>
+        <h2 class="sec-title">Experience</h2>
+        <div class="sec-meta">// 5 Roles · Newest First</div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-period">Nov 2023 — Jan 2025</div>
-        <div>
-          <div class="timeline-role">System Support Engineer</div>
-          <div class="timeline-company">Alpha Omega Computer Ltd — Batley</div>
-          <div class="timeline-desc">Managed client DNS, Windows Server (2016–2022) environments, and Linux (CentOS) LAMP stacks. Designed and deployed open-source management platforms including SnipeIT, Zabbix, and Zammad. Upgraded large-scale networking using Brocade, Ruckus, and pfSense. Provided remote support to 100+ users across West Yorkshire. Led the Royal Armouries network infrastructure refresh — a 10G, 3-building, 7-switch stack designed to serve ~3,000 concurrent clients at the annual UKREiiF conference.</div>
-          <div class="timeline-highlights">
-            <span class="timeline-tag">Windows Server</span>
-            <span class="timeline-tag">Linux / CentOS</span>
-            <span class="timeline-tag">pfSense</span>
-            <span class="timeline-tag">Brocade / Ruckus</span>
-            <span class="timeline-tag">DNS Management</span>
-            <span class="timeline-tag">Large-scale Networking</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-period">May 2023 — Nov 2023</div>
-        <div>
-          <div class="timeline-role">1st Line Support Engineer</div>
-          <div class="timeline-company">BW Legal — Leeds</div>
-          <div class="timeline-desc">First point of contact for internal IT support in a highly regulated legal environment. Managed a hybrid Azure/on-premises Active Directory, maintained Citrix VMs, and configured Ubiquiti switches and access points. Built and configured 10-Zig Zero Clients and supported YubiKey MFA rollout. Tested internally developed Citrix Beta releases ahead of business-wide deployment.</div>
-          <div class="timeline-highlights">
-            <span class="timeline-tag">Azure AD</span>
-            <span class="timeline-tag">Citrix</span>
-            <span class="timeline-tag">UniFi</span>
-            <span class="timeline-tag">YubiKey MFA</span>
-            <span class="timeline-tag">Regulated Environment</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-period">Aug 2022 — May 2023</div>
-        <div>
-          <div class="timeline-role">IT Support Technician</div>
-          <div class="timeline-company">Makehappen Group (now Future Network Solutions) — Leeds</div>
-          <div class="timeline-desc">Provided 1st and 2nd line support across UK offices including Leeds, Manchester, Thetford, Cleckheaton, and Liverpool. Deployed Ubiquiti infrastructure, managed Microsoft Exchange Online, and built SharePoint portals. Deployed and managed company devices via Microsoft Autopilot and Intune. Overhauled Grandstream VoIP systems and supported Sage server maintenance.</div>
-          <div class="timeline-highlights">
-            <span class="timeline-tag">Autopilot / Intune</span>
-            <span class="timeline-tag">Exchange Online</span>
-            <span class="timeline-tag">SharePoint</span>
-            <span class="timeline-tag">VoIP</span>
-            <span class="timeline-tag">Multi-site Support</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-period">Jun 2021 — Aug 2022</div>
-        <div>
-          <div class="timeline-role">IT Support Technician (Apprenticeship)</div>
-          <div class="timeline-company">Woodspeen Training — Huddersfield</div>
-          <div class="timeline-desc">Completed an Infrastructure Technician Apprenticeship while delivering IT support and infrastructure improvements. Guided the company through Cyber Essentials certification, introduced an IT lifecycle strategy, led the migration from on-premises systems to Office 365 and SharePoint, and transitioned the company to VoIP. Established the IT asset inventory and overhauled the new starter/leaver process.</div>
-          <div class="timeline-highlights">
-            <span class="timeline-tag">Cyber Essentials</span>
-            <span class="timeline-tag">Office 365</span>
-            <span class="timeline-tag">VoIP</span>
-            <span class="timeline-tag">Asset Management</span>
-            <span class="timeline-tag">Apprenticeship</span>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">03 — Skills</div>
-    <div class="section-title">Professional<br/>Skills</div>
-    <div class="skills-grid">
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <span class="exp-date">Jan 2025 — Present</span>
+        <span class="exp-role">IT Lead</span>
+        <span class="exp-co">Duchy Homes Ltd — Leeds</span>
+      </div>
+      <div class="exp-body">
+        <p>Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by ~15%, including a Sophos-to-Defender migration saving ~£6k/year, and AI-assisted internal tooling replacing 15 Adobe Acrobat Pro licences (~£3,800/year). Leading the company's Cyber Essentials compliance programme.</p>
+        <div class="chips">
+          <span class="chip">Microsoft 365 &amp; Intune</span><span class="chip">UniFi / SD-WAN</span><span class="chip">Azure / Entra ID</span><span class="chip">Cyber Essentials</span><span class="chip">Zero Trust</span><span class="chip">Cost Optimisation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <span class="exp-date">Nov 2023 — Jan 2025</span>
+        <span class="exp-role">System Support Engineer</span>
+        <span class="exp-co">Alpha Omega Computer Ltd — Batley</span>
+      </div>
+      <div class="exp-body">
+        <p>Managed client DNS, Windows Server (2016–2022) environments, and Linux (CentOS) LAMP stacks. Designed and deployed open-source management platforms including SnipeIT, Zabbix, and Zammad. Upgraded large-scale networking using Brocade, Ruckus, and pfSense. Provided remote support to 100+ users across West Yorkshire. Led the Royal Armouries network infrastructure refresh — a 10G, 3-building, 7-switch stack designed to serve ~3,000 concurrent clients at the annual UKREiiF conference.</p>
+        <div class="chips">
+          <span class="chip">Windows Server</span><span class="chip">Linux / CentOS</span><span class="chip">pfSense</span><span class="chip">Brocade / Ruckus</span><span class="chip">DNS Management</span><span class="chip">Large-scale Networking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <span class="exp-date">May 2023 — Nov 2023</span>
+        <span class="exp-role">1st Line Support Engineer</span>
+        <span class="exp-co">BW Legal — Leeds</span>
+      </div>
+      <div class="exp-body">
+        <p>First point of contact for internal IT support in a highly regulated legal environment. Managed a hybrid Azure/on-premises Active Directory, maintained Citrix VMs, and configured Ubiquiti switches and access points. Built and configured 10-Zig Zero Clients and supported YubiKey MFA rollout. Tested internally developed Citrix Beta releases ahead of business-wide deployment.</p>
+        <div class="chips">
+          <span class="chip">Azure AD</span><span class="chip">Citrix</span><span class="chip">UniFi</span><span class="chip">YubiKey MFA</span><span class="chip">Regulated Environment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <span class="exp-date">Aug 2022 — May 2023</span>
+        <span class="exp-role">IT Support Technician</span>
+        <span class="exp-co">Makehappen Group (now Future Network Solutions) — Leeds</span>
+      </div>
+      <div class="exp-body">
+        <p>Provided 1st and 2nd line support across UK offices including Leeds, Manchester, Thetford, Cleckheaton, and Liverpool. Deployed Ubiquiti infrastructure, managed Microsoft Exchange Online, and built SharePoint portals. Deployed and managed company devices via Microsoft Autopilot and Intune. Overhauled Grandstream VoIP systems and supported Sage server maintenance.</p>
+        <div class="chips">
+          <span class="chip">Autopilot / Intune</span><span class="chip">Exchange Online</span><span class="chip">SharePoint</span><span class="chip">VoIP</span><span class="chip">Multi-site Support</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <span class="exp-date">Jun 2021 — Aug 2022</span>
+        <span class="exp-role">IT Support Technician (Apprenticeship)</span>
+        <span class="exp-co">Woodspeen Training — Huddersfield</span>
+      </div>
+      <div class="exp-body">
+        <p>Completed an Infrastructure Technician Apprenticeship while delivering IT support and infrastructure improvements. Guided the company through Cyber Essentials certification, introduced an IT lifecycle strategy, led the migration from on-premises systems to Office 365 and SharePoint, and transitioned the company to VoIP. Established the IT asset inventory and overhauled the new starter/leaver process.</p>
+        <div class="chips">
+          <span class="chip">Cyber Essentials</span><span class="chip">Office 365</span><span class="chip">VoIP</span><span class="chip">Asset Management</span><span class="chip">Apprenticeship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div>
+        <h2 class="sec-title">Skills</h2>
+        <div class="sec-meta">// Stack · Tooling · Capability</div>
+      </div>
+    </div>
+    <div class="skill-grid reveal">
       <div class="skill-card">
-        <div class="skill-category">Microsoft 365 & Cloud</div>
-        <div class="skill-name">M365 & Azure Stack</div>
-        <div class="skill-tags">
-          <span class="tag">Intune</span>
-          <span class="tag">Entra ID</span>
-          <span class="tag">Defender</span>
-          <span class="tag">Purview</span>
-          <span class="tag">Azure SQL</span>
-          <span class="tag">Autopilot</span>
-          <span class="tag">Exchange Online</span>
-          <span class="tag">SharePoint</span>
+        <div class="skill-cat">Microsoft 365 &amp; Cloud</div>
+        <div class="skill-name">M365 &amp; Azure Stack</div>
+        <div class="chips">
+          <span class="chip">Intune</span><span class="chip">Entra ID</span><span class="chip">Defender</span><span class="chip">Purview</span><span class="chip">Azure SQL</span><span class="chip">Autopilot</span><span class="chip">Exchange Online</span><span class="chip">SharePoint</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Infrastructure</div>
-        <div class="skill-name">Network & Systems</div>
-        <div class="skill-tags">
-          <span class="tag">UniFi</span>
-          <span class="tag">Meraki</span>
-          <span class="tag">Brocade</span>
-          <span class="tag">Ruckus</span>
-          <span class="tag">VLANs</span>
-          <span class="tag">SD-WAN</span>
-          <span class="tag">VPN</span>
-          <span class="tag">DNS</span>
+        <div class="skill-cat">Infrastructure</div>
+        <div class="skill-name">Network &amp; Systems</div>
+        <div class="chips">
+          <span class="chip">UniFi</span><span class="chip">Meraki</span><span class="chip">Brocade</span><span class="chip">Ruckus</span><span class="chip">VLANs</span><span class="chip">SD-WAN</span><span class="chip">VPN</span><span class="chip">DNS</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Security</div>
+        <div class="skill-cat">Security</div>
         <div class="skill-name">Cybersecurity</div>
-        <div class="skill-tags">
-          <span class="tag">Zero Trust</span>
-          <span class="tag">pfSense</span>
-          <span class="tag">SonicWall</span>
-          <span class="tag">IDS/IPS</span>
-          <span class="tag">MFA / YubiKey</span>
-          <span class="tag">Cyber Essentials</span>
-          <span class="tag">ASR Rules</span>
-          <span class="tag">DKIM/DMARC</span>
+        <div class="chips">
+          <span class="chip">Zero Trust</span><span class="chip">pfSense</span><span class="chip">SonicWall</span><span class="chip">IDS/IPS</span><span class="chip">MFA / YubiKey</span><span class="chip">Cyber Essentials</span><span class="chip">ASR Rules</span><span class="chip">DKIM/DMARC</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Device Management</div>
-        <div class="skill-name">MDM & Endpoint</div>
-        <div class="skill-tags">
-          <span class="tag">Intune</span>
-          <span class="tag">Apple Business Manager</span>
-          <span class="tag">Windows Autopilot</span>
-          <span class="tag">PowerShell</span>
-          <span class="tag">Win32 Packaging</span>
-          <span class="tag">Citrix</span>
+        <div class="skill-cat">Device Management</div>
+        <div class="skill-name">MDM &amp; Endpoint</div>
+        <div class="chips">
+          <span class="chip">Intune</span><span class="chip">Apple Business Manager</span><span class="chip">Windows Autopilot</span><span class="chip">PowerShell</span><span class="chip">Win32 Packaging</span><span class="chip">Citrix</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Systems</div>
-        <div class="skill-name">Linux & Servers</div>
-        <div class="skill-tags">
-          <span class="tag">Ubuntu</span>
-          <span class="tag">CentOS</span>
-          <span class="tag">LAMP Stack</span>
-          <span class="tag">Windows Server</span>
-          <span class="tag">Active Directory</span>
-          <span class="tag">Virtualisation</span>
+        <div class="skill-cat">Systems</div>
+        <div class="skill-name">Linux &amp; Servers</div>
+        <div class="chips">
+          <span class="chip">Ubuntu</span><span class="chip">CentOS</span><span class="chip">LAMP Stack</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Virtualisation</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Leadership & Strategy</div>
+        <div class="skill-cat">Leadership &amp; Strategy</div>
         <div class="skill-name">IT Management</div>
-        <div class="skill-tags">
-          <span class="tag">Vendor Management</span>
-          <span class="tag">Budgeting</span>
-          <span class="tag">Procurement</span>
-          <span class="tag">AI-assisted Development</span>
-          <span class="tag">Documentation</span>
-          <span class="tag">Cost Optimisation</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK PROJECTS -->
-  <section id="work-projects">
-    <div class="section-label">04 — Work Projects</div>
-    <div class="section-title">Project<br/>Highlights</div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-type">Professional · Duchy Homes Ltd</div>
-        <div class="project-meta">Completed June 2025</div>
-        <div class="project-title">WiFi Infrastructure Modernisation — Meraki to UniFi Migration</div>
-        <div class="project-desc">Company-wide replacement of end-of-life Cisco Meraki APs with Ubiquiti UniFi U7 Pro Max (WiFi 7) across the main office and two remote sales centres. Projected savings of ~£5,000 over five years.</div>
-        <button class="find-out-more" onclick="openModal('modal-wifi')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Professional · Duchy Homes Ltd</div>
-        <div class="project-meta">Completed May 2025</div>
-        <div class="project-title">Apple Device MDM — Apple Business Manager & Microsoft Intune</div>
-        <div class="project-desc">Full MDM solution for all corporate Apple devices (iPhones, iPads, Macs), integrating ABM with Intune to achieve Cyber Essentials compliance and replace an entirely unmanaged device estate.</div>
-        <button class="find-out-more" onclick="openModal('modal-abm')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Professional · Duchy Homes Ltd</div>
-        <div class="project-meta">Completed December 2025</div>
-        <div class="project-title">Network Security Upgrade — UniFi Enterprise Fortress Gateway</div>
-        <div class="project-desc">Replaced the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway. One-time £1,617 investment vs £13k–£34k enterprise alternatives. Delivered IDS/IPS, encrypted DNS, and VLAN segmentation.</div>
-        <button class="find-out-more" onclick="openModal('modal-efg')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Professional · Duchy Homes Ltd</div>
-        <div class="project-meta">Completed January 2026</div>
-        <div class="project-title">Endpoint & Email Security Migration — Sophos to Microsoft Defender</div>
-        <div class="project-desc">Replaced Sophos Intercept X and Sophos Email with Microsoft Defender, leveraging existing M365 Business Premium licences. Projected savings of ~£15,500 over three years, eliminating ~£6,000 in annual recurring costs.</div>
-        <button class="find-out-more" onclick="openModal('modal-defender')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Professional · Duchy Homes Ltd</div>
-        <div class="project-meta">April 2026</div>
-        <div class="project-title">AI-Assisted Internal App Development — PDF Tooling Suite</div>
-        <div class="project-desc">Used AI-assisted development to build an internal PDF tooling suite from scratch with no prior development background, replacing high-volume Adobe Acrobat Pro workflows and identifying 15 licences for retirement (~£3,800/year saved).</div>
-        <button class="find-out-more" onclick="openModal('modal-pdf')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Professional · Alpha Omega Computers</div>
-        <div class="project-meta">Feb – May 2024</div>
-        <div class="project-title">Royal Armouries Network Infrastructure Refresh</div>
-        <div class="project-desc">Led the design and delivery of a 10G network infrastructure refresh across three buildings at the Royal Armouries Museum, designed to serve ~3,000 concurrent clients during the annual UKREiiF conference.</div>
-        <button class="find-out-more" onclick="openModal('modal-armouries')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PERSONAL PROJECTS -->
-  <section id="personal-projects">
-    <div class="section-label">05 — Personal Projects</div>
-    <div class="section-title">Personal<br/>Highlights</div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-type">Personal · Home Server</div>
-        <div class="project-title">Self-Hosted Plex Media Server</div>
-        <div class="project-desc">Self-built SFF home server running since 2021 on Ubuntu 24.04 LTS. Hardware selected specifically for 4K Dolby Vision / HDR transcoding via Intel QuickSync. Accessible remotely through a Cloudflare Tunnel — no open ports.</div>
-        <button class="find-out-more" onclick="openModal('modal-plex')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Personal · Home Lab</div>
-        <div class="project-title">AI-Powered Home Assistant Smart Home</div>
-        <div class="project-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Octopus Energy, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home. Driven by self-written YAML automations for autonomous solar, battery, and grid optimisation.</div>
-        <button class="find-out-more" onclick="openModal('modal-ha')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Personal · Home Lab</div>
-        <div class="project-title">Self-Managed UniFi Home Network</div>
-        <div class="project-desc">Self-managed UniFi network with a static public IP, underpinning all home lab services. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels. Self-hosted UniFi Network Application for full local control.</div>
-        <button class="find-out-more" onclick="openModal('modal-unifi')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-type">Personal · Home Lab</div>
-        <div class="project-title">Cloudflare Tunnels — Secure Remote Access</div>
-        <div class="project-desc">Evolved from DuckDNS with open ports → own domain on Cloudflare → Cloudflare Tunnels with zero open ports. All home lab services run exclusively through Cloudflare's edge with Zero Trust access policies enforced.</div>
-        <button class="find-out-more" onclick="openModal('modal-cf')">Find Out More <span class="arrow">→</span></button>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Bartosz Borowski</p>
-    <a href="mailto:your@email.com">Get In Touch →</a>
-  </footer>
-
-  <!-- MODALS -->
-
-  <!-- WiFi Migration -->
-  <div class="modal-overlay" id="modal-wifi" onclick="handleOverlayClick(event, 'modal-wifi')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Duchy Homes Ltd</div>
-        <div class="modal-meta">Completed June 2025 · IT Lead</div>
-        <div class="modal-title">WiFi Infrastructure Modernisation — Cisco Meraki to UniFi Migration</div>
-        <button class="modal-close" onclick="closeModal('modal-wifi')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Led the end-to-end planning and delivery of a company-wide WiFi infrastructure overhaul, replacing end-of-life Cisco Meraki access points with Ubiquiti UniFi U7 Pro Max (WiFi 7) APs across the main office and two remote sales centres.</p>
-        <h4>Business Case</h4>
-        <p>Authored the full project brief and business case, identifying that Meraki's enterprise licensing represented significant unnecessary expenditure. A cost-benefit analysis demonstrated projected savings of approximately £5,000 over five years by migrating to a self-hosted UniFi solution with no recurring licensing fees.</p>
-        <h4>Delivery</h4>
-        <p>Managed procurement via competitive tender, salvaged an existing Intel NUC to avoid additional hardware costs, and deployed Ubuntu 24.04 LTS as the UniFi Network Management Controller host. Configured secure remote access, UFW firewall rules, VLAN-based staff/guest SSID segmentation, and zero-touch AP adoption across all sites. Resolved PoE+ compatibility issues and firewall port conflicts without service disruption.</p>
-        <h4>Outcome</h4>
-        <p>Migration was seamless and transparent to end users with no reported service disruption. The new infrastructure ensures Cyber Essentials compliance, supports the forthcoming WiFi 7-enabled Device-as-a-Service refresh, and is expected to remain relevant until at least 2031.</p>
-        <div class="modal-tags">
-          <span class="tag">UniFi U7 Pro Max</span><span class="tag">WiFi 7</span><span class="tag">Ubuntu 24.04</span><span class="tag">VLANs</span><span class="tag">Zero-Touch Adoption</span><span class="tag">Cyber Essentials</span><span class="tag">£5k Saving</span>
+        <div class="chips">
+          <span class="chip">Vendor Management</span><span class="chip">Budgeting</span><span class="chip">Procurement</span><span class="chip">AI-assisted Development</span><span class="chip">Documentation</span><span class="chip">Cost Optimisation</span>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Apple MDM -->
-  <div class="modal-overlay" id="modal-abm" onclick="handleOverlayClick(event, 'modal-abm')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Duchy Homes Ltd</div>
-        <div class="modal-meta">Completed May 2025 · IT Lead</div>
-        <div class="modal-title">Apple Device MDM — Apple Business Manager & Microsoft Intune</div>
-        <button class="modal-close" onclick="closeModal('modal-abm')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Designed and delivered a full mobile device management solution for all corporate Apple devices — iPhones, iPads, and Macs — integrating Apple Business Manager (ABM) with Microsoft Intune to achieve Cyber Essentials compliance and replace an entirely unmanaged estate.</p>
-        <h4>Key Challenge</h4>
-        <p>A critical early challenge was recovering an ABM account originally set up by a former employee with no documentation or handover. This required engaging Apple Business Support, compiling legal proof of company ownership, and successfully regaining full administrative control of the account.</p>
-        <h4>Technical Delivery</h4>
-        <p>Configured the full technical stack across both platforms: MDM Push Certificate, ABM-Intune enrolment token, automated enrolment profiles with supervised and locked enrolment, VPP token for corporate app deployment, and dynamic Azure AD group architecture for automatic device targeting. Deployed Microsoft 365, Defender, Teams, and Adobe Acrobat company-wide alongside role-specific apps for sales teams.</p>
-        <h4>Rollout</h4>
-        <p>Delivered in two phases — an IT pilot (Phase 1) followed by a full business rollout (Phase 2), during which a more efficient wireless enrolment method using iOS Apple Configurator was identified, eliminating the need for physical USB connections. Managed migration of all users from personal iCloud accounts to corporate Managed Apple Accounts.</p>
-        <div class="modal-tags">
-          <span class="tag">Apple Business Manager</span><span class="tag">Intune</span><span class="tag">ADE</span><span class="tag">VPP</span><span class="tag">Dynamic Groups</span><span class="tag">Cyber Essentials</span><span class="tag">MDM</span>
-        </div>
+<!-- WORK PROJECTS -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div>
+        <h2 class="sec-title">Work Projects</h2>
+        <div class="sec-meta">// 6 Delivered · Professional</div>
       </div>
     </div>
-  </div>
+    <div class="proj-grid">
 
-  <!-- EFG -->
-  <div class="modal-overlay" id="modal-efg" onclick="handleOverlayClick(event, 'modal-efg')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Duchy Homes Ltd</div>
-        <div class="modal-meta">Completed December 2025 · IT Lead</div>
-        <div class="modal-title">Network Security Upgrade — UniFi Enterprise Fortress Gateway</div>
-        <button class="modal-close" onclick="closeModal('modal-efg')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Identified and made the business case for replacing the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway, addressing critical security gaps including the inability to inspect encrypted HTTPS traffic and no intrusion detection capability.</p>
-        <h4>Business Case</h4>
-        <p>Authored a detailed project brief including a full threat landscape analysis, vendor comparison across Fortinet, SonicWall, Cisco Meraki, and UniFi, and cost justification — securing approval for a one-time £1,617 investment with no recurring licensing, against enterprise alternatives costing £13,000–£34,000 over five years.</p>
-        <h4>Delivery</h4>
-        <p>Executed out-of-hours within a planned two-hour maintenance window. Pre-migration work included full config backups, firmware preparation, colour-coded cable labelling, VLAN design, a step-by-step migration runbook, and a documented rollback strategy. Post-migration produced a full network topology diagram in Microsoft Visio.</p>
-        <h4>Outcome</h4>
-        <p>Delivered VLAN segmentation, encrypted DNS (DoH/DoT), Intrusion Detection and Prevention (IDP) with daily signature updates, rogue DHCP detection, and dual PSU redundancy integrated with a new UPS. Project completed with no service disruption and a materially improved security posture across all connected sites.</p>
-        <div class="modal-tags">
-          <span class="tag">UniFi EFG</span><span class="tag">IDS/IPS</span><span class="tag">VLANs</span><span class="tag">DoH/DoT</span><span class="tag">£1,617 vs £34k</span><span class="tag">Zero Trust</span><span class="tag">Visio Topology</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Duchy Homes Ltd</span><span class="proj-num">W1</span></div>
+        <div class="proj-body">
+          <div class="proj-title">WiFi Infrastructure Modernisation</div>
+          <div class="proj-meta">Completed June 2025 · IT Lead</div>
+          <p class="proj-desc">Company-wide replacement of end-of-life Cisco Meraki APs with Ubiquiti UniFi U7 Pro Max (WiFi 7) across the main office and two remote sales centres. Projected savings of ~£5,000 over five years.</p>
+          <button class="btn" onclick="openModal('m-wp1')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Defender -->
-  <div class="modal-overlay" id="modal-defender" onclick="handleOverlayClick(event, 'modal-defender')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Duchy Homes Ltd</div>
-        <div class="modal-meta">Completed January 2026 · IT Lead</div>
-        <div class="modal-title">Endpoint & Email Security Migration — Sophos to Microsoft Defender</div>
-        <button class="modal-close" onclick="closeModal('modal-defender')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Identified and made the business case for replacing Sophos Intercept X and Sophos Email Advanced with Microsoft Defender for Endpoint and Defender for Office 365, leveraging capabilities already included within existing Microsoft 365 Business Premium licences.</p>
-        <h4>Business Case</h4>
-        <p>Authored a cost-benefit analysis demonstrating projected savings of ~£15,500 over three years, with a one-off implementation spend of ~£2,500, eliminating ~£6,000 in annual recurring Sophos licensing costs. Engaged BCN Group as an implementation partner to manage risk.</p>
-        <h4>Endpoint (Defender for Endpoint)</h4>
-        <p>Designed and deployed a comprehensive Intune policy suite covering Attack Surface Reduction rules, Tamper Protection, real-time scanning with cloud-delivered protection, Network Protection, and custom device tagging. Staged rollout across IT test, pilot, and business-wide phases with formal acceptance criteria across eight security controls.</p>
-        <h4>Email (Defender for Office 365)</h4>
-        <p>Coordinated DNS delegation for DKIM and DMARC configuration, managed company-wide communications during switchover, and deployed a tiered Standard/Strict protection model. Configured VIP impersonation protection for senior management, established trusted domain allowlists, and validated full SPF/DKIM/DMARC alignment post-cutover on 6th January 2026 with no outages.</p>
-        <div class="modal-tags">
-          <span class="tag">Defender for Endpoint</span><span class="tag">Defender for O365</span><span class="tag">ASR Rules</span><span class="tag">DKIM/DMARC</span><span class="tag">£15.5k Saving</span><span class="tag">Intune</span><span class="tag">BCN Group</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Duchy Homes Ltd</span><span class="proj-num">W2</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Apple Device MDM</div>
+          <div class="proj-meta">Completed May 2025 · IT Lead</div>
+          <p class="proj-desc">Full MDM solution for all corporate Apple devices (iPhones, iPads, Macs), integrating ABM with Intune to achieve Cyber Essentials compliance and replace an entirely unmanaged device estate.</p>
+          <button class="btn" onclick="openModal('m-wp2')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- PDF Tooling -->
-  <div class="modal-overlay" id="modal-pdf" onclick="handleOverlayClick(event, 'modal-pdf')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Duchy Homes Ltd</div>
-        <div class="modal-meta">April 2026 · IT Lead</div>
-        <div class="modal-title">AI-Assisted Internal App Development — PDF Tooling Suite & Adobe Replacement</div>
-        <button class="modal-close" onclick="closeModal('modal-pdf')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Identified that a significant portion of Adobe Acrobat Pro licences were being consumed by a single, simple workflow — extracting individual pages from multi-page PDF construction drawing packages. Used AI-assisted development to build a purpose-built internal Windows desktop application with no prior software development background and no external development costs.</p>
-        <h4>The Application</h4>
-        <p>Built in Python using open-source libraries (PyMuPDF, Pillow, Tkinter), the DH Stamp Plan Extractor provides a graphical interface for browsing PDF thumbnails, selecting pages manually or via keyword search, automatically extracting drawing titles from AutoCAD title blocks, and saving individual pages as standalone PDFs.</p>
-        <h4>Technical Challenges Solved</h4>
-        <p>The standard Tkinter file dialog does not load Windows shell namespace extensions, making ZeeDrive-mapped SharePoint locations invisible — resolved by replacing the dialog with direct Windows Common Dialog API calls via ctypes. AutoCAD PDFs write text layer-by-layer rather than in visual reading order, causing title block extraction to interleave labels with values — resolved with a two-strategy title parser combining phrase-line matching and a hardened label-skip list.</p>
-        <h4>Deployment & Outcome</h4>
-        <p>Packaged using PyInstaller and deployed silently via Intune as a Win32 app. A second PDF combiner tool was subsequently built for the technical and design teams. Across both tools, 15 Adobe Acrobat Pro licences have been identified for retirement — delivering ~£3,800 in annual savings with no ongoing licensing or vendor dependency.</p>
-        <div class="modal-tags">
-          <span class="tag">Python</span><span class="tag">PyMuPDF</span><span class="tag">AI-Assisted Dev</span><span class="tag">Intune Win32</span><span class="tag">PyInstaller</span><span class="tag">£3,800/yr Saving</span><span class="tag">Adobe Replacement</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Duchy Homes Ltd</span><span class="proj-num">W3</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Network Security Upgrade</div>
+          <div class="proj-meta">Completed December 2025 · IT Lead</div>
+          <p class="proj-desc">Replaced the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway. One-time £1,617 investment vs £13k–£34k enterprise alternatives. Delivered IDS/IPS, encrypted DNS, and VLAN segmentation.</p>
+          <button class="btn" onclick="openModal('m-wp3')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Royal Armouries -->
-  <div class="modal-overlay" id="modal-armouries" onclick="handleOverlayClick(event, 'modal-armouries')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Professional · Alpha Omega Computers</div>
-        <div class="modal-meta">Feb – May 2024 · System Support Engineer</div>
-        <div class="modal-title">Royal Armouries Network Infrastructure Refresh & Re-Design</div>
-        <button class="modal-close" onclick="closeModal('modal-armouries')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>AOC provides the Royal Armouries Museum with private WiFi infrastructure for events and the annual UKREiiF conference, where exhibitors purchase private connectivity for their stands. As the conference scale grew, bottlenecks in the existing infrastructure were limiting the number of paid connections available.</p>
-        <h4>Scope</h4>
-        <p>Led analysis, design, and implementation of a full network infrastructure upgrade to support 10G speeds across three independent buildings. The project involved coordinating new fibre line installs with an external contractor, building multiple pfSense-based firewalls and traffic shapers with 10G capability, and designing a 7-switch stack spanning the museum and surrounding areas.</p>
-        <h4>Scale & Outcome</h4>
-        <p>The network was designed to serve approximately 3,000 concurrent clients at peak during UKREiiF. Delivered on time with no delays and no outages to the wider museum staff or public WiFi during the implementation phase. The investment yielded positive financial return after UKREiiF, establishing AOC as a top-tier contractor with key museum stakeholders.</p>
-        <div class="modal-tags">
-          <span class="tag">pfSense</span><span class="tag">10G Networking</span><span class="tag">7-Switch Stack</span><span class="tag">Traffic Shaping</span><span class="tag">Fibre</span><span class="tag">~3,000 Clients</span><span class="tag">UKREiiF</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Duchy Homes Ltd</span><span class="proj-num">W4</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Endpoint &amp; Email Security Migration</div>
+          <div class="proj-meta">Completed January 2026 · IT Lead</div>
+          <p class="proj-desc">Replaced Sophos Intercept X and Sophos Email with Microsoft Defender, leveraging existing M365 Business Premium licences. Projected savings of ~£15,500 over three years, eliminating ~£6,000 in annual recurring costs.</p>
+          <button class="btn" onclick="openModal('m-wp4')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Plex -->
-  <div class="modal-overlay" id="modal-plex" onclick="handleOverlayClick(event, 'modal-plex')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Personal · Home Server</div>
-        <div class="modal-title">Self-Hosted Plex Media Server</div>
-        <button class="modal-close" onclick="closeModal('modal-plex')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>A self-built SFF (Small Form Factor) home server that has been running continuously since 2021. Built from scratch with hardware carefully selected for the specific demands of 4K Dolby Vision and HDR video transcoding — the key requirement being Intel QuickSync hardware acceleration, which allows high-bitrate 4K streams to be transcoded in real time without taxing the CPU.</p>
-        <h4>Software & OS</h4>
-        <p>The server runs Ubuntu 24.04 LTS as the host operating system, providing a stable, long-term supported Linux base. Plex Media Server runs as a background service, managing the media library and handling all local and remote playback requests. There are no VLANs on the home network — the server sits on the flat network alongside other devices, with access controlled at the firewall and tunnel level rather than through network segmentation.</p>
-        <h4>Remote Access</h4>
-        <p>Remote access is handled entirely via a Cloudflare Tunnel — there are no open ports on the home router. The cloudflared daemon on the server maintains a persistent outbound connection to Cloudflare's edge, through which all remote Plex traffic is routed. This eliminates the need for port forwarding, dynamic DNS, or any direct internet exposure of the server.</p>
-        <div class="modal-tags">
-          <span class="tag">Plex</span><span class="tag">SFF Build</span><span class="tag">Intel QuickSync</span><span class="tag">4K DV/HDR</span><span class="tag">Ubuntu 24.04 LTS</span><span class="tag">Cloudflare Tunnel</span><span class="tag">No Open Ports</span><span class="tag">Since 2021</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Duchy Homes Ltd</span><span class="proj-num">W5</span></div>
+        <div class="proj-body">
+          <div class="proj-title">AI-Assisted Internal App Development</div>
+          <div class="proj-meta">April 2026 · IT Lead</div>
+          <p class="proj-desc">Used AI-assisted development to build an internal PDF tooling suite from scratch with no prior development background, replacing high-volume Adobe Acrobat Pro workflows and identifying 15 licences for retirement (~£3,800/year saved).</p>
+          <button class="btn" onclick="openModal('m-wp5')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Home Assistant -->
-  <div class="modal-overlay" id="modal-ha" onclick="handleOverlayClick(event, 'modal-ha')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Personal · Home Lab</div>
-        <div class="modal-title">AI-Powered Home Assistant Smart Home</div>
-        <button class="modal-close" onclick="closeModal('modal-ha')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>A self-hosted Home Assistant installation that serves as the central automation hub for the home — powered by Claude API for energy analysis, forecasting, and recommendations. The system is built around maximising solar self-consumption, autonomous energy arbitrage, and optimising battery and grid usage to maximise return on investment from the installed energy systems.</p>
-        <h4>Active Integrations</h4>
-        <p>SolisCloud API (solar inverter & battery), Octopus Energy API (smart tariff & Agile pricing), MyEnergi Zappi API (EV charger control), Tesla Fleet API (vehicle state & charging), Solar Forecast API (next-day generation predictions), Google API, Zigbee2MQTT (local Zigbee device control), and Thread/Google Home integration for smart devices.</p>
-        <h4>Automations & AI</h4>
-        <p>All logic is built in self-written YAML automations that run entirely locally. These automations coordinate charging schedules, battery dispatch, export decisions, and EV charging windows based on real-time solar output, Agile tariff pricing, weather forecasts, and battery state of charge. Claude API is integrated to provide natural language energy analysis, summarise daily performance, and surface recommendations — adding an AI reasoning layer on top of the raw sensor data.</p>
-        <h4>Remote Access</h4>
-        <p>Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust policies enforced — no ports open, identity-gated access at Cloudflare's edge.</p>
-        <div class="modal-tags">
-          <span class="tag">Home Assistant</span><span class="tag">Claude API</span><span class="tag">SolisCloud</span><span class="tag">Octopus Energy</span><span class="tag">Zappi API</span><span class="tag">Tesla Fleet</span><span class="tag">Zigbee2MQTT</span><span class="tag">Solar Forecast</span><span class="tag">YAML Automations</span><span class="tag">Energy Arbitrage</span><span class="tag">Cloudflare Tunnel</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Professional · Alpha Omega Computers</span><span class="proj-num">W6</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Royal Armouries Network Refresh</div>
+          <div class="proj-meta">Feb – May 2024 · System Support Engineer</div>
+          <p class="proj-desc">Led the design and delivery of a 10G network infrastructure refresh across three buildings at the Royal Armouries Museum, designed to serve ~3,000 concurrent clients during the annual UKREiiF conference.</p>
+          <button class="btn" onclick="openModal('m-wp6')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
+
     </div>
   </div>
+</section>
 
-  <!-- UniFi Home -->
-  <div class="modal-overlay" id="modal-unifi" onclick="handleOverlayClick(event, 'modal-unifi')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Personal · Home Lab</div>
-        <div class="modal-title">Self-Managed UniFi Home Network</div>
-        <button class="modal-close" onclick="closeModal('modal-unifi')">✕ Tap to close</button>
+<!-- PERSONAL PROJECTS -->
+<section id="personal">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05</div>
+      <div>
+        <h2 class="sec-title">Personal Projects</h2>
+        <div class="sec-meta">// 4 Home Lab Builds</div>
       </div>
-      <div class="modal-body">
-        <p>A self-managed home network built on Ubiquiti UniFi hardware, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
-        <h4>Architecture</h4>
-        <p>The network runs as a flat network without VLAN segmentation — a deliberate choice for the home environment where complexity is managed differently than in an enterprise context. Security is instead enforced through Zero Trust firewall rules that control traffic flows based on identity and destination rather than network segment, combined with Cloudflare Tunnels that eliminate the need for any inbound port exposure.</p>
-        <h4>Management</h4>
-        <p>The UniFi Network Application is self-hosted locally on the Plex/home server rather than relying on Ubiquiti's cloud management infrastructure. This gives full control over the network without any cloud dependency, and mirrors the self-hosted approach used at Duchy Homes. It also provides a practical home environment for testing UniFi configurations before deploying them in a professional context.</p>
-        <div class="modal-tags">
-          <span class="tag">UniFi</span><span class="tag">Static Public IP</span><span class="tag">Self-Hosted Controller</span><span class="tag">Zero Trust Firewall</span><span class="tag">Cloudflare Tunnels</span><span class="tag">No VLANs</span><span class="tag">Home Lab</span>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Personal · Home Server</span><span class="proj-num">P1</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Self-Hosted Plex Media Server</div>
+          <p class="proj-desc">Self-built SFF home server running since 2021 on Ubuntu 24.04 LTS. Hardware selected specifically for 4K Dolby Vision / HDR transcoding via Intel QuickSync. Accessible remotely through a Cloudflare Tunnel — no open ports.</p>
+          <button class="btn" onclick="openModal('m-pp1')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Cloudflare -->
-  <div class="modal-overlay" id="modal-cf" onclick="handleOverlayClick(event, 'modal-cf')">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-type">Personal · Home Lab</div>
-        <div class="modal-title">Cloudflare Tunnels — Secure Remote Access</div>
-        <button class="modal-close" onclick="closeModal('modal-cf')">✕ Tap to close</button>
-      </div>
-      <div class="modal-body">
-        <p>Remote access to home lab services has gone through three distinct generations, each driven by a better understanding of the security trade-offs involved — evolving from a quick free solution into a properly engineered zero-exposure architecture.</p>
-        <h4>Generation 1 — DuckDNS</h4>
-        <p>Started with DuckDNS as a free dynamic DNS solution, with ports forwarded on the home router to reach Plex and Home Assistant. Simple and effective to set up, but required open inbound ports on the public IP — a direct attack surface that became increasingly uncomfortable as the services matured.</p>
-        <h4>Generation 2 — Own Domain on Cloudflare</h4>
-        <p>Migrated to a personal domain hosted on Cloudflare DNS, with Cloudflare acting as a proxy in front of the services. This added TLS termination and hid the origin IP, but inbound ports were still open on the router — traffic was just better obscured.</p>
-        <h4>Generation 3 — Cloudflare Tunnels (Current)</h4>
-        <p>The current setup uses Cloudflare Tunnels exclusively. The cloudflared daemon on the home server maintains persistent outbound connections to Cloudflare's edge — there are no open ports on the router at all. All inbound traffic for Plex and Home Assistant routes through Cloudflare, with Zero Trust access policies enforcing identity verification before any request reaches the tunnel. The result is a genuinely zero-exposure architecture: no open ports, no origin IP visibility, and identity-gated access at the edge.</p>
-        <div class="modal-tags">
-          <span class="tag">Cloudflare Tunnels</span><span class="tag">cloudflared</span><span class="tag">Zero Trust</span><span class="tag">No Open Ports</span><span class="tag">DuckDNS → CF DNS → CF Tunnel</span><span class="tag">TLS Termination</span><span class="tag">Identity Enforcement</span>
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P2</span></div>
+        <div class="proj-body">
+          <div class="proj-title">AI-Powered Home Assistant</div>
+          <p class="proj-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Octopus Energy, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home. Driven by self-written YAML automations for autonomous solar, battery, and grid optimisation.</p>
+          <button class="btn" onclick="openModal('m-pp2')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P3</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Self-Managed UniFi Home Network</div>
+          <p class="proj-desc">Self-managed UniFi network with a static public IP, underpinning all home lab services. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels. Self-hosted UniFi Network Application for full local control.</p>
+          <button class="btn" onclick="openModal('m-pp3')">Find Out More <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P4</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Cloudflare Tunnels — Secure Remote Access</div>
+          <p class="proj-desc">Evolved from DuckDNS with open ports → own domain on Cloudflare → Cloudflare Tunnels with zero open ports. All home lab services run exclusively through Cloudflare's edge with Zero Trust access policies enforced.</p>
+          <button class="btn" onclick="openModal('m-pp4')">Find Out More <span class="arrow">→</span></button>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <script>
-    function openModal(id) {
-      const overlay = document.getElementById(id);
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-name">Let's<br>Build<br><span>Something.</span></div>
+      <a class="foot-cta" href="mailto:your@email.com">Get In Touch →</a>
+    </div>
+    <div class="foot-copy">© 2026 Bartosz Borowski · IT Lead · United Kingdom</div>
+  </div>
+</footer>
+
+<!-- ============ MODALS ============ -->
+
+<!-- WP1 -->
+<div class="modal" id="m-wp1" onclick="handleOverlayClick(event,'m-wp1')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>WiFi Infrastructure Modernisation — Meraki to UniFi</h3><div class="mmeta">Completed June 2025 · IT Lead</div></div>
+      <button class="mclose" onclick="closeModal('m-wp1')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Led the end-to-end planning and delivery of a company-wide WiFi infrastructure overhaul, replacing end-of-life Cisco Meraki access points with Ubiquiti UniFi U7 Pro Max (WiFi 7) APs across the main office and two remote sales centres.</p>
+      <p><b>Business Case</b>: Authored the full project brief and business case, identifying that Meraki's enterprise licensing represented significant unnecessary expenditure. A cost-benefit analysis demonstrated projected savings of approximately £5,000 over five years by migrating to a self-hosted UniFi solution with no recurring licensing fees.</p>
+      <p><b>Delivery</b>: Managed procurement via competitive tender, salvaged an existing Intel NUC to avoid additional hardware costs, and deployed Ubuntu 24.04 LTS as the UniFi Network Management Controller host. Configured secure remote access, UFW firewall rules, VLAN-based staff/guest SSID segmentation, and zero-touch AP adoption across all sites. Resolved PoE+ compatibility issues and firewall port conflicts without service disruption.</p>
+      <p><b>Outcome</b>: Migration was seamless and transparent to end users with no reported service disruption. The new infrastructure ensures Cyber Essentials compliance, supports the forthcoming WiFi 7-enabled Device-as-a-Service refresh, and is expected to remain relevant until at least 2031.</p>
+      <div class="chips"><span class="chip">UniFi U7 Pro Max</span><span class="chip">WiFi 7</span><span class="chip">Ubuntu 24.04</span><span class="chip">VLANs</span><span class="chip">Zero-Touch Adoption</span><span class="chip">Cyber Essentials</span><span class="chip">£5k Saving</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WP2 -->
+<div class="modal" id="m-wp2" onclick="handleOverlayClick(event,'m-wp2')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>Apple Device MDM — ABM &amp; Microsoft Intune</h3><div class="mmeta">Completed May 2025 · IT Lead</div></div>
+      <button class="mclose" onclick="closeModal('m-wp2')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Designed and delivered a full mobile device management solution for all corporate Apple devices — iPhones, iPads, and Macs — integrating Apple Business Manager (ABM) with Microsoft Intune to achieve Cyber Essentials compliance and replace an entirely unmanaged estate.</p>
+      <p><b>Key Challenge</b>: A critical early challenge was recovering an ABM account originally set up by a former employee with no documentation or handover. This required engaging Apple Business Support, compiling legal proof of company ownership, and successfully regaining full administrative control of the account.</p>
+      <p><b>Technical Delivery</b>: Configured the full technical stack across both platforms: MDM Push Certificate, ABM-Intune enrolment token, automated enrolment profiles with supervised and locked enrolment, VPP token for corporate app deployment, and dynamic Azure AD group architecture for automatic device targeting. Deployed Microsoft 365, Defender, Teams, and Adobe Acrobat company-wide alongside role-specific apps for sales teams.</p>
+      <p><b>Rollout</b>: Delivered in two phases — an IT pilot (Phase 1) followed by a full business rollout (Phase 2), during which a more efficient wireless enrolment method using iOS Apple Configurator was identified, eliminating the need for physical USB connections. Managed migration of all users from personal iCloud accounts to corporate Managed Apple Accounts.</p>
+      <div class="chips"><span class="chip">Apple Business Manager</span><span class="chip">Intune</span><span class="chip">ADE</span><span class="chip">VPP</span><span class="chip">Dynamic Groups</span><span class="chip">Cyber Essentials</span><span class="chip">MDM</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WP3 -->
+<div class="modal" id="m-wp3" onclick="handleOverlayClick(event,'m-wp3')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>Network Security Upgrade — UniFi Enterprise Fortress Gateway</h3><div class="mmeta">Completed December 2025 · IT Lead</div></div>
+      <button class="mclose" onclick="closeModal('m-wp3')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Identified and made the business case for replacing the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway, addressing critical security gaps including the inability to inspect encrypted HTTPS traffic and no intrusion detection capability.</p>
+      <p><b>Business Case</b>: Authored a detailed project brief including a full threat landscape analysis, vendor comparison across Fortinet, SonicWall, Cisco Meraki, and UniFi, and cost justification — securing approval for a one-time £1,617 investment with no recurring licensing, against enterprise alternatives costing £13,000–£34,000 over five years.</p>
+      <p><b>Delivery</b>: Executed out-of-hours within a planned two-hour maintenance window. Pre-migration work included full config backups, firmware preparation, colour-coded cable labelling, VLAN design, a step-by-step migration runbook, and a documented rollback strategy. Post-migration produced a full network topology diagram in Microsoft Visio.</p>
+      <p><b>Outcome</b>: Delivered VLAN segmentation, encrypted DNS (DoH/DoT), Intrusion Detection and Prevention (IDP) with daily signature updates, rogue DHCP detection, and dual PSU redundancy integrated with a new UPS. Project completed with no service disruption and a materially improved security posture across all connected sites.</p>
+      <div class="chips"><span class="chip">UniFi EFG</span><span class="chip">IDS/IPS</span><span class="chip">VLANs</span><span class="chip">DoH/DoT</span><span class="chip">£1,617 vs £34k</span><span class="chip">Zero Trust</span><span class="chip">Visio Topology</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WP4 -->
+<div class="modal" id="m-wp4" onclick="handleOverlayClick(event,'m-wp4')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>Endpoint &amp; Email Security Migration — Sophos to Defender</h3><div class="mmeta">Completed January 2026 · IT Lead</div></div>
+      <button class="mclose" onclick="closeModal('m-wp4')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Identified and made the business case for replacing Sophos Intercept X and Sophos Email Advanced with Microsoft Defender for Endpoint and Defender for Office 365, leveraging capabilities already included within existing Microsoft 365 Business Premium licences.</p>
+      <p><b>Business Case</b>: Authored a cost-benefit analysis demonstrating projected savings of ~£15,500 over three years, with a one-off implementation spend of ~£2,500, eliminating ~£6,000 in annual recurring Sophos licensing costs. Engaged BCN Group as an implementation partner to manage risk.</p>
+      <p><b>Endpoint (Defender for Endpoint)</b>: Designed and deployed a comprehensive Intune policy suite covering Attack Surface Reduction rules, Tamper Protection, real-time scanning with cloud-delivered protection, Network Protection, and custom device tagging. Staged rollout across IT test, pilot, and business-wide phases with formal acceptance criteria across eight security controls.</p>
+      <p><b>Email (Defender for Office 365)</b>: Coordinated DNS delegation for DKIM and DMARC configuration, managed company-wide communications during switchover, and deployed a tiered Standard/Strict protection model. Configured VIP impersonation protection for senior management, established trusted domain allowlists, and validated full SPF/DKIM/DMARC alignment post-cutover on 6th January 2026 with no outages.</p>
+      <div class="chips"><span class="chip">Defender for Endpoint</span><span class="chip">Defender for O365</span><span class="chip">ASR Rules</span><span class="chip">DKIM/DMARC</span><span class="chip">£15.5k Saving</span><span class="chip">Intune</span><span class="chip">BCN Group</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WP5 -->
+<div class="modal" id="m-wp5" onclick="handleOverlayClick(event,'m-wp5')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>AI-Assisted Internal App Development — PDF Tooling Suite</h3><div class="mmeta">April 2026 · IT Lead</div></div>
+      <button class="mclose" onclick="closeModal('m-wp5')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Identified that a significant portion of Adobe Acrobat Pro licences were being consumed by a single, simple workflow — extracting individual pages from multi-page PDF construction drawing packages. Used AI-assisted development to build a purpose-built internal Windows desktop application with no prior software development background and no external development costs.</p>
+      <p><b>The Application</b>: Built in Python using open-source libraries (PyMuPDF, Pillow, Tkinter), the DH Stamp Plan Extractor provides a graphical interface for browsing PDF thumbnails, selecting pages manually or via keyword search, automatically extracting drawing titles from AutoCAD title blocks, and saving individual pages as standalone PDFs.</p>
+      <p><b>Technical Challenges Solved</b>: The standard Tkinter file dialog does not load Windows shell namespace extensions, making ZeeDrive-mapped SharePoint locations invisible — resolved by replacing the dialog with direct Windows Common Dialog API calls via ctypes. AutoCAD PDFs write text layer-by-layer rather than in visual reading order, causing title block extraction to interleave labels with values — resolved with a two-strategy title parser combining phrase-line matching and a hardened label-skip list.</p>
+      <p><b>Deployment &amp; Outcome</b>: Packaged using PyInstaller and deployed silently via Intune as a Win32 app. A second PDF combiner tool was subsequently built for the technical and design teams. Across both tools, 15 Adobe Acrobat Pro licences have been identified for retirement — delivering ~£3,800 in annual savings with no ongoing licensing or vendor dependency.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">PyMuPDF</span><span class="chip">AI-Assisted Dev</span><span class="chip">Intune Win32</span><span class="chip">PyInstaller</span><span class="chip">£3,800/yr Saving</span><span class="chip">Adobe Replacement</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WP6 -->
+<div class="modal" id="m-wp6" onclick="handleOverlayClick(event,'m-wp6')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Alpha Omega Computers</div><h3>Royal Armouries Network Infrastructure Refresh</h3><div class="mmeta">Feb – May 2024 · System Support Engineer</div></div>
+      <button class="mclose" onclick="closeModal('m-wp6')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>AOC provides the Royal Armouries Museum with private WiFi infrastructure for events and the annual UKREiiF conference, where exhibitors purchase private connectivity for their stands. As the conference scale grew, bottlenecks in the existing infrastructure were limiting the number of paid connections available.</p>
+      <p><b>Scope</b>: Led analysis, design, and implementation of a full network infrastructure upgrade to support 10G speeds across three independent buildings. The project involved coordinating new fibre line installs with an external contractor, building multiple pfSense-based firewalls and traffic shapers with 10G capability, and designing a 7-switch stack spanning the museum and surrounding areas.</p>
+      <p><b>Scale &amp; Outcome</b>: The network was designed to serve approximately 3,000 concurrent clients at peak during UKREiiF. Delivered on time with no delays and no outages to the wider museum staff or public WiFi during the implementation phase. The investment yielded positive financial return after UKREiiF, establishing AOC as a top-tier contractor with key museum stakeholders.</p>
+      <div class="chips"><span class="chip">pfSense</span><span class="chip">10G Networking</span><span class="chip">7-Switch Stack</span><span class="chip">Traffic Shaping</span><span class="chip">Fibre</span><span class="chip">~3,000 Clients</span><span class="chip">UKREiiF</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PP1 -->
+<div class="modal" id="m-pp1" onclick="handleOverlayClick(event,'m-pp1')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Personal · Home Server</div><h3>Self-Hosted Plex Media Server</h3></div>
+      <button class="mclose" onclick="closeModal('m-pp1')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>A self-built SFF (Small Form Factor) home server that has been running continuously since 2021. Built from scratch with hardware carefully selected for the specific demands of 4K Dolby Vision and HDR video transcoding — the key requirement being Intel QuickSync hardware acceleration, which allows high-bitrate 4K streams to be transcoded in real time without taxing the CPU.</p>
+      <p><b>Software &amp; OS</b>: The server runs Ubuntu 24.04 LTS as the host operating system, providing a stable, long-term supported Linux base. Plex Media Server runs as a background service, managing the media library and handling all local and remote playback requests. There are no VLANs on the home network — the server sits on the flat network alongside other devices, with access controlled at the firewall and tunnel level rather than through network segmentation.</p>
+      <p><b>Remote Access</b>: Remote access is handled entirely via a Cloudflare Tunnel — there are no open ports on the home router. The cloudflared daemon on the server maintains a persistent outbound connection to Cloudflare's edge, through which all remote Plex traffic is routed. This eliminates the need for port forwarding, dynamic DNS, or any direct internet exposure of the server.</p>
+      <div class="chips"><span class="chip">Plex</span><span class="chip">SFF Build</span><span class="chip">Intel QuickSync</span><span class="chip">4K DV/HDR</span><span class="chip">Ubuntu 24.04 LTS</span><span class="chip">Cloudflare Tunnel</span><span class="chip">No Open Ports</span><span class="chip">Since 2021</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PP2 -->
+<div class="modal" id="m-pp2" onclick="handleOverlayClick(event,'m-pp2')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Personal · Home Lab</div><h3>AI-Powered Home Assistant Smart Home</h3></div>
+      <button class="mclose" onclick="closeModal('m-pp2')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>A self-hosted Home Assistant installation that serves as the central automation hub for the home — powered by Claude API for energy analysis, forecasting, and recommendations. The system is built around maximising solar self-consumption, autonomous energy arbitrage, and optimising battery and grid usage to maximise return on investment from the installed energy systems.</p>
+      <p><b>Active Integrations</b>: SolisCloud API (solar inverter &amp; battery), Octopus Energy API (smart tariff &amp; Agile pricing), MyEnergi Zappi API (EV charger control), Tesla Fleet API (vehicle state &amp; charging), Solar Forecast API (next-day generation predictions), Google API, Zigbee2MQTT (local Zigbee device control), and Thread/Google Home integration for smart devices.</p>
+      <p><b>Automations &amp; AI</b>: All logic is built in self-written YAML automations that run entirely locally. These automations coordinate charging schedules, battery dispatch, export decisions, and EV charging windows based on real-time solar output, Agile tariff pricing, weather forecasts, and battery state of charge. Claude API is integrated to provide natural language energy analysis, summarise daily performance, and surface recommendations — adding an AI reasoning layer on top of the raw sensor data.</p>
+      <p><b>Remote Access</b>: Home Assistant is accessible remotely via a Cloudflare Tunnel with Zero Trust policies enforced — no ports open, identity-gated access at Cloudflare's edge.</p>
+      <div class="chips"><span class="chip">Home Assistant</span><span class="chip">Claude API</span><span class="chip">SolisCloud</span><span class="chip">Octopus Energy</span><span class="chip">Zappi API</span><span class="chip">Tesla Fleet</span><span class="chip">Zigbee2MQTT</span><span class="chip">Solar Forecast</span><span class="chip">YAML Automations</span><span class="chip">Energy Arbitrage</span><span class="chip">Cloudflare Tunnel</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PP3 -->
+<div class="modal" id="m-pp3" onclick="handleOverlayClick(event,'m-pp3')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Personal · Home Lab</div><h3>Self-Managed UniFi Home Network</h3></div>
+      <button class="mclose" onclick="closeModal('m-pp3')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>A self-managed home network built on Ubiquiti UniFi hardware, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
+      <p><b>Architecture</b>: The network runs as a flat network without VLAN segmentation — a deliberate choice for the home environment where complexity is managed differently than in an enterprise context. Security is instead enforced through Zero Trust firewall rules that control traffic flows based on identity and destination rather than network segment, combined with Cloudflare Tunnels that eliminate the need for any inbound port exposure.</p>
+      <p><b>Management</b>: The UniFi Network Application is self-hosted locally on the Plex/home server rather than relying on Ubiquiti's cloud management infrastructure. This gives full control over the network without any cloud dependency, and mirrors the self-hosted approach used at Duchy Homes. It also provides a practical home environment for testing UniFi configurations before deploying them in a professional context.</p>
+      <div class="chips"><span class="chip">UniFi</span><span class="chip">Static Public IP</span><span class="chip">Self-Hosted Controller</span><span class="chip">Zero Trust Firewall</span><span class="chip">Cloudflare Tunnels</span><span class="chip">No VLANs</span><span class="chip">Home Lab</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PP4 -->
+<div class="modal" id="m-pp4" onclick="handleOverlayClick(event,'m-pp4')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Personal · Home Lab</div><h3>Cloudflare Tunnels — Secure Remote Access</h3></div>
+      <button class="mclose" onclick="closeModal('m-pp4')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Remote access to home lab services has gone through three distinct generations, each driven by a better understanding of the security trade-offs involved — evolving from a quick free solution into a properly engineered zero-exposure architecture.</p>
+      <p><b>Generation 1 — DuckDNS</b>: Started with DuckDNS as a free dynamic DNS solution, with ports forwarded on the home router to reach Plex and Home Assistant. Simple and effective to set up, but required open inbound ports on the public IP — a direct attack surface that became increasingly uncomfortable as the services matured.</p>
+      <p><b>Generation 2 — Own Domain on Cloudflare</b>: Migrated to a personal domain hosted on Cloudflare DNS, with Cloudflare acting as a proxy in front of the services. This added TLS termination and hid the origin IP, but inbound ports were still open on the router — traffic was just better obscured.</p>
+      <p><b>Generation 3 — Cloudflare Tunnels (Current)</b>: The current setup uses Cloudflare Tunnels exclusively. The cloudflared daemon on the home server maintains persistent outbound connections to Cloudflare's edge — there are no open ports on the router at all. All inbound traffic for Plex and Home Assistant routes through Cloudflare, with Zero Trust access policies enforcing identity verification before any request reaches the tunnel. The result is a genuinely zero-exposure architecture: no open ports, no origin IP visibility, and identity-gated access at the edge.</p>
+      <div class="chips"><span class="chip">Cloudflare Tunnels</span><span class="chip">cloudflared</span><span class="chip">Zero Trust</span><span class="chip">No Open Ports</span><span class="chip">DuckDNS → CF DNS → CF Tunnel</span><span class="chip">TLS Termination</span><span class="chip">Identity Enforcement</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden';}
+  function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow='';}
+  function handleOverlayClick(e,id){if(e.target===e.currentTarget)closeModal(id);}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      document.querySelectorAll('.modal.active').forEach(function(m){m.classList.remove('active');});
+      document.body.style.overflow='';
     }
-    function closeModal(id) {
-      const overlay = document.getElementById(id);
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function handleOverlayClick(event, id) {
-      if (event.target === event.currentTarget) closeModal(id);
-    }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.active').forEach(m => {
-          m.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      }
+  });
+
+  // mobile menu
+  function toggleMenu(){
+    var l=document.getElementById('navLinks'),b=document.getElementById('menuBtn');
+    l.classList.toggle('open');
+    b.textContent=l.classList.contains('open')?'Close':'Menu';
+  }
+  function closeMenu(){
+    var l=document.getElementById('navLinks'),b=document.getElementById('menuBtn');
+    l.classList.remove('open');b.textContent='Menu';
+  }
+
+  // scroll reveal (skip hero — it animates on load)
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
     });
-  </script>
-
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('section .reveal').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*0.05)+'s';
+    io.observe(el);
+  });
+</script>
 </body>
 </html>
