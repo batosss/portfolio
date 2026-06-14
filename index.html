@@ -341,6 +341,7 @@
   .foot-cta:hover{background:var(--bg);color:var(--ink);}
   .foot-cta:active{transform:translate(7px,7px);box-shadow:0 0 0 var(--bg);}
   .foot-copy{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:48px;opacity:.6;border-top:2px solid rgba(244,242,236,.2);padding-top:24px;}
+  .foot-cta-wrapper{text-align:right;}
 
   /* ============ LOAD ANIMATION ============ */
   .reveal{opacity:0;transform:translateY(24px);}
@@ -389,6 +390,7 @@
       z-index:56;
     }
     .menu-toggle:hover{background:var(--acc);color:var(--ink);}
+    .foot-cta-wrapper{text-align:left;}
   }
   @media(max-width:560px){
     body{font-size:15px;}
@@ -438,8 +440,9 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</span><span>Starlink</span><span>PowerShell</span><span>Linux / CentOS</span>
-    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</ span>< span >Starlink</ span >< span >PowerShell</ span >< span >Linux / CentOS</ span >  </div>
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</span><span>PowerShell</span><span>Linux / CentOS</span>
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi / SD-WAN</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>pfSense</span><span>Defender</span><span>Cost Optimisation</span><span>Cloudflare Tunnels</span><span>PowerShell</span><span>Linux / CentOS</span>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -513,7 +516,7 @@
         <span class="exp-co">Duchy Homes Ltd — Leeds</span>
       </div>
       <div class="exp-body">
-        <p>Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by 20%+, including a Sophos-to-Defender migration saving ~£6k/year, AI-assisted internal tooling replacing Adobe Acrobat Pro licences (~£1750/year), and migration of remote site network connectivity from managed solutions (£300–400/month/location) to an in-house Starlink fleet (sub-£100/month/site). Leading the company's Cyber Essentials compliance programme.</p>
+        <p>Leading all IT operations across a Leeds office and 7 remote development sites (~50 staff, ~250 endpoints). Responsible for network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation. Delivered multiple cost-saving initiatives reducing IT expenditure by 20%+, including a Sophos-to-Defender migration saving ~£6k/year, AI-assisted internal tooling replacing 15 Adobe Acrobat Pro licences (~£3,800/year), and migration of remote site network connectivity from managed solutions (£300–400/month/location) to an in-house Starlink fleet (sub-£100/month/site). Leading the company's Cyber Essentials compliance programme.</p>
         <div class="chips">
           <span class="chip">Microsoft 365 &amp; Intune</span><span class="chip">UniFi / SD-WAN</span><span class="chip">Azure / Entra ID</span><span class="chip">Cyber Essentials</span><span class="chip">Zero Trust</span><span class="chip">Cost Optimisation</span>
         </div>
@@ -600,7 +603,7 @@
         <div class="skill-cat">Infrastructure</div>
         <div class="skill-name">Network &amp; Systems</div>
         <div class="chips">
-          <span class="chip">UniFi</span><span class="chip">Meraki</span><span class="chip">Brocade</span><span class="chip">Ruckus</span><span class="chip">Starlink</span><span class="chip">VLANs</span><span class="chip">SD-WAN</span><span class="chip">VPN</span><span class="chip">DNS</span>
+          <span class="chip">UniFi</span><span class="chip">Meraki</span><span class="chip">Brocade</span><span class="chip">Ruckus</span><span class="chip">VLANs</span><span class="chip">SD-WAN</span><span class="chip">VPN</span><span class="chip">DNS</span>
         </div>
       </div>
       <div class="skill-card">
@@ -642,7 +645,7 @@
       <div class="sec-num">04</div>
       <div>
         <h2 class="sec-title">Work Projects</h2>
-        <div class="sec-meta">// Delivered · Professional · Highlights</div>
+        <div class="sec-meta">// 6 Delivered · Professional</div>
       </div>
     </div>
     <div class="proj-grid">
@@ -774,7 +777,10 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-name">Let's<br>Build<br><span>Something.</span></div>
-      <a class="foot-cta" href="#" id="contact-btn" onclick="handleContact(event)">Get In Touch →</a>
+      <div class="foot-cta-wrapper">
+        <a class="foot-cta" href="#" id="contact-btn" onclick="handleContact(event)">Get In Touch →</a>
+        <div style="font-size:12px;font-style:italic;margin-top:12px;opacity:.6;">Or email hello&#64;bartosz-borowski.uk directly</div>
+      </div>
     </div>
     <div class="foot-copy">© 2026 Bartosz Borowski · IT Lead · Leeds, UK</div>
   </div>
@@ -887,7 +893,7 @@
 <div class="modal" id="m-other" onclick="handleOverlayClick(event,'m-other')">
   <div class="modal-box" style="max-width:860px;">
     <div class="modal-top">
-      <div><div class="mtype">Professional · Additional Highlights</div><h3>Other Projects &amp; Initiatives</h3><div class="mmeta">Various Employers · 2021–Present</div></div>
+      <div><div class="mtype">Professional · Additional Work</div><h3>Other Projects &amp; Initiatives</h3><div class="mmeta">Various Employers · 2021–Present</div></div>
       <button class="mclose" onclick="closeModal('m-other')">×</button>
     </div>
     <div class="other-proj-list">
@@ -946,14 +952,6 @@
         <div class="op-desc">Leading Duchy Homes Ltd through the Cyber Essentials certification programme — the second organisation guided through this process across my career. Scope covers patch management, boundary firewalls, access control, malware protection, and secure configuration across all ~250 endpoints. Certification supports the company's supplier due diligence requirements and underpins the wider security posture improvements delivered across W1–W4.</div>
       </div>
 
-      <div class="op-item">
-        <div class="op-head">
-          <div class="op-title">Remote Site Network Modernisation — Starlink Fleet Migration</div>
-          <div class="op-badge">Duchy Homes</div>
-        </div>
-        <div class="op-meta">2025–2026 · IT Lead</div>
-        <div class="op-desc">Migrated remote development site connectivity from managed 4/5G-based solutions (£300–400/month/location, bandwidth throttling, vendor lock-in) to a self-managed in-house Starlink fleet (sub-£100/month/site). Deployed Starlink in bypass mode integrated with UniFi security infrastructure, unlocking admin-level network access and eliminating bandwidth constraints. Leveraged the UniFi stack to implement advanced network segmentation, traffic shaping, and Zero Trust policies across all sites. Reduction in connectivity costs of approximately 75% per location with improved reliability and full operational control.</div>
-      </div>
     </div>
   </div>
 </div>
@@ -1036,12 +1034,13 @@
     }
   });
 
-  // contact button
-function handleContact(e) {
+  // contact button — obfuscated email
+  function handleContact(e) {
     e.preventDefault();
     var addr = atob('bWFpbHRvOmhlbGxvQGJhcnRvc3otYm9yb3dza2kudWs=');
     window.location.href = addr;
   }
+
   // mobile menu
   function toggleMenu(){
     var l=document.getElementById('navLinks'),b=document.getElementById('menuBtn');
