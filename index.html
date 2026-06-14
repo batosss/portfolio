@@ -775,7 +775,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-name">Let's<br>Build<br><span>Something.</span></div>
-      <a class="foot-cta" href="mailto:your@email.com">Get In Touch →</a>
+      <a class="foot-cta" href="#" id="contact-btn" onclick="handleContact(event)">Get In Touch →</a>
     </div>
     <div class="foot-copy">© 2026 Bartosz Borowski · IT Lead · Leeds, UK</div>
   </div>
@@ -1029,6 +1029,12 @@
     }
   });
 
+  // contact button
+function handleContact(e) {
+    e.preventDefault();
+    var addr = atob('bWFpbHRvOmhlbGxvQGJhcnRvc3otYm9yb3dza2kudWs=');
+    window.location.href = addr;
+  }
   // mobile menu
   function toggleMenu(){
     var l=document.getElementById('navLinks'),b=document.getElementById('menuBtn');
