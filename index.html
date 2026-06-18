@@ -1051,6 +1051,50 @@
     window.location.href = addr;
   }
 
+  // Analytics tracking — logs to Cloudflare Analytics Engine
+async function trackEvent(eventType, elementId) {
+  try {
+    await fetch('/api/analytics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event_type: eventType,
+        element_id: elementId,
+        page_url: window.location.pathname,
+        timestamp: new Date().toISOString()
+      })
+    });
+  } catch (error) {
+    console.error('Analytics tracking failed:', error);
+  }
+}
+
+// Track modal opens
+const originalOpenModal = window.openModal;
+window.openModal = function(id) {
+  trackEvent('modal_open', id);
+  originalOpenModal(id);
+};
+
+// Track "Get In Touch" button click
+document.addEventListener('DOMContentLoaded', function() {
+  const contactBtn = document.getElementById('contact-btn');
+  if (contactBtn) {
+    contactBtn.addEventListener('click', function() {
+      trackEvent('contact_button_click', 'contact-btn');
+    });
+  }
+});
+
+// Track "Other Projects" button click
+document.addEventListener('DOMContentLoaded', function() {
+  const otherProjBtn = document.querySelector('button[onclick="openModal(\'m-other\')"]');
+  if (otherProjBtn) {
+    otherProjBtn.addEventListener('click', function() {
+      trackEvent('other_projects_click', 'm-other');
+    });
+  }
+});
   // mobile menu
   function toggleMenu(){
     var l=document.getElementById('navLinks'),b=document.getElementById('menuBtn');
