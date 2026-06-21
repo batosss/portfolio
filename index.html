@@ -215,9 +215,11 @@
     transition:none;
   }
   .skill-card:nth-child(3n){border-right:none;}
-  .skill-card:nth-child(n+4){border-bottom:none;}
-  .skill-card:hover{background:var(--ink);color:var(--bg);}
-  .skill-card:hover .chip{border-color:var(--bg);color:var(--bg);}
+  .skill-card:nth-child(n+10){border-bottom:none;}
+  .skill-card:hover{background:var(--ink);}
+  .skill-card:hover .skill-cat{color:var(--acc);}
+  .skill-card:hover .skill-name{color:var(--bg);}
+  .skill-card:hover .chip{border-color:var(--ink);color:var(--ink);}
   .skill-card:hover .chip:hover{background:var(--acc);border-color:var(--acc);color:var(--ink);}
   .skill-cat{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:8px;}
   .skill-name{font-family:'Archivo Black',sans-serif;font-size:1.35rem;text-transform:uppercase;margin-bottom:18px;line-height:1;}
@@ -666,7 +668,7 @@
       <div class="sec-num">04</div>
       <div>
         <h2 class="sec-title">Work Projects</h2>
-        <div class="sec-meta">// 6 Delivered · Professional</div>
+        <div class="sec-meta">// Delivered · Professional · Highlights</div>
       </div>
     </div>
     <div class="proj-grid">
@@ -696,7 +698,7 @@
         <div class="proj-body">
           <div class="proj-title">Network Security Upgrade</div>
           <div class="proj-meta">Completed December 2025 · IT Lead</div>
-          <p class="proj-desc">Replaced the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway. One-time £1,617 investment vs £13k–£34k enterprise alternatives. Delivered IDS/IPS, encrypted DNS, and VLAN segmentation.</p>
+          <p class="proj-desc">Replaced the company's ageing DrayTek router with a UniFi Enterprise Fortress Gateway. One-time hardware investment, fully managed in-house vs expensive managed enterprise alternatives. Delivered IDS/IPS, encrypted DNS, and VLAN segmentation.</p>
           <button class="btn" onclick="openModal('m-wp3')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -706,7 +708,7 @@
         <div class="proj-body">
           <div class="proj-title">Endpoint &amp; Email Security Migration</div>
           <div class="proj-meta">Completed January 2026 · IT Lead</div>
-          <p class="proj-desc">Replaced Sophos Intercept X and Sophos Email with Microsoft Defender, leveraging existing M365 Business Premium licences. Projected savings of ~£15,500 over three years, eliminating ~£6,000 in annual recurring costs.</p>
+          <p class="proj-desc">Replaced Sophos Intercept X and Sophos Email with Microsoft Defender, leveraging existing M365 Business Premium licences. Projected savings of ~£15,500 over three years, eliminating ~£6,000 in annual recurring costs, without compromising security.</p>
           <button class="btn" onclick="openModal('m-wp4')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -716,7 +718,7 @@
         <div class="proj-body">
           <div class="proj-title">AI-Assisted Internal App Development</div>
           <div class="proj-meta">April 2026 · IT Lead</div>
-          <p class="proj-desc">Used AI-assisted development to build an internal PDF tooling suite from scratch with no prior development background, replacing Adobe Acrobat Pro workflows. (~£1,750/year saved).</p>
+          <p class="proj-desc">Used AI-assisted development to build an internal PDF tooling suite from scratch with no prior development background, replacing high-volume Adobe Acrobat Pro workflows, while improving efficiency. (~£1,750/year saved).</p>
           <button class="btn" onclick="openModal('m-wp5')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -736,7 +738,7 @@
         <div class="proj-body">
           <div class="proj-title">Security Review & Modernisation Programme</div>
           <div class="proj-meta">Jan 2025 – Mar 2026 · IT Lead</div>
-          <p class="proj-desc">Led a comprehensive 17-initiative security and infrastructure modernisation programme. Delivered Apple ABM/Intune MDM, Windows 11 upgrades, network hardening, endpoint migration, and Zero Trust enforcement. £6k investment generated £10k+ savings and improved Secure Scores from ~55% to ~80%.</p>
+          <p class="proj-desc">Led a comprehensive 17-initiative security and infrastructure modernisation programme. Delivered Apple ABM/Intune MDM, Windows 11 upgrades, network hardening, endpoint migration, and Zero Trust enforcement. £6k investment generated £10k+ savings and improved Microsoft Secure Scores from ~55% to ~80%. (88% as of June 2026)</p>
           <button class="btn" onclick="openModal('m-wp7')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -793,7 +795,7 @@
       </div>
 
       <div class="proj-card reveal">
-        <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P2</span></div>
+        <div class="proj-head"><span class="proj-type">Personal · Home Server</span><span class="proj-num">P2</span></div>
         <div class="proj-body">
           <div class="proj-title">AI-Powered Home Assistant</div>
           <p class="proj-desc">Self-hosted Home Assistant with Claude API integration for energy analysis and recommendations. Connects SolisCloud, Intelligent Octopus Go, Saving Sessions, Free Energy Sessions, AxleVPP, MyEnergi Zappi, Tesla Fleet, Solar Forecast, Google, Zigbee2MQTT, and Thread/Google Home.</p>
@@ -802,10 +804,10 @@
       </div>
 
       <div class="proj-card reveal">
-        <div class="proj-head"><span class="proj-type">Personal · Home Lab</span><span class="proj-num">P3</span></div>
+        <div class="proj-head"><span class="proj-type">Personal · Home Network</span><span class="proj-num">P3</span></div>
         <div class="proj-body">
           <div class="proj-title">Self-Managed UniFi Home Network</div>
-          <p class="proj-desc">Self-managed UniFi network built around a UDR7 router with a static public IP, managed via UniFi Site Manager. No VLANs — security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels.</p>
+          <p class="proj-desc">Self-managed UniFi network built around a UDR7 router with a static public IP, managed via UniFi Site Manager. Security enforced through Zero Trust firewall rules in combination with Cloudflare Tunnels.</p>
           <button class="btn" onclick="openModal('m-pp3')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -918,8 +920,8 @@
       <p>Identified that a significant portion of Adobe Acrobat Pro licences were being consumed by a single, simple workflow — extracting individual pages from multi-page PDF construction drawing packages. Used AI-assisted development to build a purpose-built internal Windows desktop application with no prior software development background and no external development costs.</p>
       <p><b>The Application</b>: Built in Python using open-source libraries (PyMuPDF, Pillow, Tkinter), the DH Stamp Plan Extractor provides a graphical interface for browsing PDF thumbnails, selecting pages manually or via keyword search, automatically extracting drawing titles from AutoCAD title blocks, and saving individual pages as standalone PDFs.</p>
       <p><b>Technical Challenges Solved</b>: The standard Tkinter file dialog does not load Windows shell namespace extensions, making ZeeDrive-mapped SharePoint locations invisible — resolved by replacing the dialog with direct Windows Common Dialog API calls via ctypes. AutoCAD PDFs write text layer-by-layer rather than in visual reading order, causing title block extraction to interleave labels with values — resolved with a two-strategy title parser combining phrase-line matching and a hardened label-skip list.</p>
-      <p><b>Deployment &amp; Outcome</b>: Packaged using PyInstaller and deployed silently via Intune as a Win32 app. Improving existing workflows with a bespoke in-house solution. Delivering ~£1,750 in annual savings with no ongoing licensing or vendor dependency.</p>
-      <div class="chips"><span class="chip">Python</span><span class="chip">PyMuPDF</span><span class="chip">AI-Assisted Dev</span><span class="chip">Intune Win32</span><span class="chip">PyInstaller</span><span class="chip">£3,800/yr Saving</span><span class="chip">Adobe Replacement</span></div>
+      <p><b>Deployment &amp; Outcome</b>: Packaged using PyInstaller and deployed silently via Intune as a Win32 app. Delivering ~£1,750 in annual savings with no ongoing licensing or vendor dependency.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">PyMuPDF</span><span class="chip">AI-Assisted Dev</span><span class="chip">Intune Win32</span><span class="chip">PyInstaller</span><span class="chip">£1,750/yr Saving</span><span class="chip">Adobe Replacement</span></div>
     </div>
   </div>
 </div>
@@ -995,14 +997,14 @@
 <div class="modal" id="m-other" onclick="handleOverlayClick(event,'m-other')">
   <div class="modal-box" style="max-width:860px;">
     <div class="modal-top">
-      <div><div class="mtype">Professional · Additional Work</div><h3>Other Projects &amp; Initiatives</h3><div class="mmeta">Various Employers · 2021–Present</div></div>
+      <div><div class="mtype">Professional · Additional Highlights</div><h3>Other Projects &amp; Initiatives</h3><div class="mmeta">Various Employers · 2021–Present</div></div>
       <button class="mclose" onclick="closeModal('m-other')">×</button>
     </div>
     <div class="other-proj-list">
 
       <div class="op-item">
         <div class="op-head">
-          <div class="op-title">Cyber Essentials Certification — Woodspeen Training</div>
+          <div class="op-title">Cyber Essentials Certification</div>
           <div class="op-badge">Woodspeen</div>
         </div>
         <div class="op-meta">2021 · IT Support Technician (Apprenticeship)</div>
@@ -1047,11 +1049,128 @@
 
       <div class="op-item">
         <div class="op-head">
-          <div class="op-title">Cyber Essentials Programme — Duchy Homes Ltd</div>
+          <div class="op-title">Cyber Essentials Programme</div>
           <div class="op-badge">Duchy Homes</div>
         </div>
         <div class="op-meta">Ongoing · IT Lead</div>
-        <div class="op-desc">Leading Duchy Homes Ltd through the Cyber Essentials certification programme — the second organisation guided through this process across my career. Scope covers patch management, boundary firewalls, access control, malware protection, and secure configuration across all ~250 endpoints. Certification supports the company's supplier due diligence requirements and underpins the wider security posture improvements delivered across W1–W4.</div>
+        <div class="op-desc">Leading Duchy Homes Ltd through the Cyber Essentials certification programme — the second organisation guided through this process across my career. Scope covers endpoint management, UniFi firewalls, access control, malware protection, and secure configuration across all ~250 endpoints. Certification supports the company's supplier due diligence requirements and underpins the wider security posture improvements delivered across W1–W4.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Sales NUC Intune Enrolment & Kiosk Deployment</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">June 2025 · IT Lead</div>
+        <div class="op-desc">End-to-end design and delivery of Microsoft Intune enrolment for sales centre NUC touchscreen devices. Created dynamic group architecture with custom membership rules, PowerShell automation for device naming, tailored Intune policies for compliance and configuration. Implemented Chrome-based kiosk with startup folder automation and auto-login. Resolved registry corruption and device enrolment cap issues. Replaced unsecured manual setup with centralized, compliant, scalable platform supporting up to 1,000 devices.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">NUC Kiosk Security Hardening — Defender & iOS Config</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">January 2026 · IT Lead</div>
+        <div class="op-desc">Extended Defender for Endpoint coverage to NUC kiosk devices post-Sophos migration. Three-device pilot validated Chrome kiosk, auto-login, and scheduled tasks unaffected. Created dedicated Intune profile for distinct Defender device tag enabling accurate device grouping and scoped investigations. Resolved longstanding issue with Defender for iOS on managed Apple devices by replacing loopback VPN-based deployment with supervised mode configuration profile, fixing mobile hotspot conflict.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">NUC Kiosk Application Delivery & Endpoint Management Modernisation</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">March 2026 · IT Lead</div>
+        <div class="op-desc">Programme of improvements to modernise NUC kiosk and corporate Windows device management through Intune. Evaluated Microsoft Edge (rejected due to fullscreen inconsistencies). Migrated weekly NUC reboot scheduling from Task Scheduler to Intune Remediation for centralised control and reporting. Packaged and deployed site-specific Chrome KIOSK packages via dynamic groups. Deployed Intune Company Portal to corporate Windows devices. Updated Google Chrome Enterprise and SolarWinds Discovery Agent. Manchester deployment established reference architecture for gradual rollout.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Kiosk & Site Check-In iPad Deployment — Apple Business Manager & Intune</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">April 2026 · IT Lead</div>
+        <div class="op-desc">Designed and delivered secure, scalable enrolment framework for iPadOS kiosk devices supporting EVA CheckIn (site cabin attendance/H&amp;S inductions) and SwipedOn (main office visitor management). Established corporate-owned ABM-driven target architecture with Automated Device Enrollment (ADE). Created dedicated Managed Apple ID for device lifecycle ownership. Identified and resolved dynamic group design challenges (enrollmentProfileName persistence, device.deviceOSType unreliability). Validated managed WiFi profiles and compliance policies. Delivers zero-touch provisioning, logical separation, and Cyber Essentials alignment.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Remote Access Automation — SolarWinds Dameware via Intune</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">May 2026 · IT Lead</div>
+        <div class="op-desc">Automated deployment and configuration of SolarWinds Dameware Remote Everywhere (DRE) agent across corporate Windows estate via Microsoft Intune, replacing fully manual per-device installation. Packaged agent using IntuneWinAppUtil with silent install/uninstall commands and registry-based detection rules. Staged rollout via pilot group. Created differentiated DRE agent policies for user devices (OS lock on session end enabled) and NUC kiosks (OS lock disabled for continuous operation). Result: fully automated, policy-driven remote access with zero manual installation steps.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Windows & Edge Security Baseline Modernisation — Zero Trust Remediation</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">March 2026 · IT Lead</div>
+        <div class="op-desc">Identified critical governance gap: legacy MDM security baseline deployed in 2021 remained assigned to all corporate laptops/desktops, unremediated since Sophos-to-Defender migration. Assessed as irredeemable — deprecated settings, Windows 11 incompatibility, no Defender/Credential Guard/VBS support. Built new 2026 baseline from first principles using Zero Trust default-deny philosophy. Validated through alpha (2 devices) and pilot (9 devices) rollout. Simultaneously replaced Edge v85 legacy baseline (frozen since 2022) with modern 2026 baseline. Extended hardening to NUC kiosks — resolved auto-login failure caused by Legal Notice policy.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Windows Hello for Business — Passwordless Authentication Enforcement</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">March 2026 · IT Lead</div>
+        <div class="op-desc">Identified gap in 2026 security baseline: Windows Hello for Business managed through Intune's Endpoint Security Account Protection rather than standard baselines. Designed and deployed WHfB policy to corporate Windows device estate, enforcing TPM-backed, device-bound passwordless authentication. Deliberately omitted PIN expiry/history — no material security benefit vs. TPM anti-hammering, but degrades UX. Scoped to corporate user devices only, excluding NUCs and shared devices. Validated through pilot with zero login failures before expanding to full corporate group.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Azure SQL Server Implementation & Entra ID Access Configuration</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">May 2026 · IT Lead</div>
+        <div class="op-desc">Provisioned new Azure SQL Server environment under dedicated subscription with isolated resource group. Designed access model around Entra ID group-based authentication rather than individual accounts. Configured transparent data encryption, SQL auditing to Log Analytics workspace, serverless General Purpose compute tier for cost optimisation. Enabled secure remote access via UniFi Zero Trust VPN integrated with Entra ID, providing identity-based access control with automatic joiner/leaver propagation. Resolved Azure SQL authentication edge cases including Entra-only lockout and token refresh timing.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Industry Security Expo Attendance & Strategic Review — DTX Manchester</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">April 2026 · IT Lead</div>
+        <div class="op-desc">Attended DTX Manchester security expo covering zero-trust architecture, AI-driven threat detection, endpoint resilience. Sessions featured FBI cyber leadership, cloud platform security teams, enterprise vendors. Key themes: Cyber Essentials baseline; organisations require AI-driven behavioral security and modern infrastructure. Defender telemetry across billions of daily transactions reveals behavioral analysis as critical to breach prevention. Recommendations addressed identity (strong MFA, per-user exclusion elimination), endpoint governance (baseline BYOD controls, retire systems older than 4 years), network hardening (IDP, encrypted DNS, Layer 7 inspection), and data protection (disable link-sharing, guest MFA enforcement).</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Exchange Online Mailbox Archiving & Retention Strategy — Two-Part Implementation</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">June 2026 · IT Lead</div>
+        <div class="op-desc">Investigated organization-wide mailbox capacity issues caused by disabled archive mailboxes combined with complex, outdated MRM policies. Root cause: archive functionality required for auto-archiving but disabled for most users. Phase 1 established baseline 2-year archive policy with simplified user controls, deployed via pilot. Phase 2 implemented strategic enhancements: 3-year archive policy for critical business roles (directors, finance, shared mailboxes), upgraded shared mailbox licensing, established governance roadmap for formal Purview retention policies. Eliminated capacity incidents, established sustainable email lifecycle management, created scalable foundation for future compliance controls.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">BYOD Android Compliance Policies & Conditional Access Readiness</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">June 2026 · IT Lead</div>
+        <div class="op-desc">Implemented three new Android BYOD compliance policies within Intune aligned with Cyber Essentials: mandatory device encryption/passwords, minimum OS version (Android 13), device integrity validation (root detection, Play Integrity). Scoped to personally owned Android devices via dynamic groups, ensuring corporate devices unaffected. Redesigned compliance notification framework across all platforms with severity-based messaging, quick-fix self-remediation, improved tenant branding. Company-wide communication prepared users for new format. Establishes foundational layer for future Conditional Access enforcement — transition from monitoring to active access denial for non-compliant/unmanaged devices.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">NUC Privilege Model Redesign & UAC Security Baseline Enhancement</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">June 2026 · IT Lead</div>
+        <div class="op-desc">Investigated display driver installation failures on newly deployed NUC kiosks. Root cause analysis revealed key finding: Windows auto-logon does not require administrative privileges. Transitioned from legacy local administrator model to Zero Trust-aligned, identity-based elevation architecture. Kiosk accounts downgraded to standard users; IT staff assigned as local administrators via Intune Account Protection. Eliminated persistent local privilege exposure while maintaining IT's elevation capability. Identified critical gap: UAC not explicitly configured in security baselines. Enhanced baseline to enforce credential-based elevation prompts across all endpoints, preventing silent elevation, strengthening Cyber Essentials alignment.</div>
+      </div>
+
+      <div class="op-item">
+        <div class="op-head">
+          <div class="op-title">Remote Site Network Modernisation — Starlink Fleet Migration</div>
+          <div class="op-badge">Duchy Homes</div>
+        </div>
+        <div class="op-meta">2025–2026 · IT Lead</div>
+        <div class="op-desc">Migrated remote development site connectivity from managed 4/5G solutions (£300–400/month/location, bandwidth throttling, vendor lock-in) to self-managed Starlink fleet (sub-£100/month/site). Deployed Starlink in bypass mode integrated with UniFi security infrastructure, unlocking admin-level network access and eliminating bandwidth constraints. Leveraged UniFi stack for network segmentation, traffic shaping, Zero Trust policies. Achieved 75% per-location cost reduction with improved reliability and full operational control. Prepared remote sites for future SD-WAN and VPN implementations.</div>
       </div>
 
     </div>
@@ -1103,7 +1222,7 @@
       <p>A self-managed home network built on Ubiquiti UniFi hardware centred on a UDR7 router, providing the reliable and controllable foundation on which Plex, Home Assistant, and all Cloudflare Tunnels run. The network operates on a static public IP address, which simplifies tunnel connectivity and ensures consistent routing for all outbound services.</p>
       <p><b>Architecture</b>: The network runs as a flat network without VLAN segmentation — a deliberate choice for the home environment where complexity is managed differently than in an enterprise context. Security is instead enforced through Zero Trust firewall rules that control traffic flows based on identity and destination rather than network segment, combined with Cloudflare Tunnels that eliminate the need for any inbound port exposure.</p>
       <p><b>Management via UniFi Site Manager</b>: The network is managed through UniFi Site Manager — Ubiquiti's self-managed cloud platform, included at no additional cost with UniFi hardware. Site Manager provides centralised visibility, remote access, and configuration management without introducing a third-party cloud dependency or recurring subscription. It represents strong value for money and mirrors the type of centralised management approach used in professional deployments. SSH access to network devices is available to a limited number of local devices only, controlled via UFW on the connected Ubuntu hosts.</p>
-      <div class="chips"><span class="chip">UniFi UDR7</span><span class="chip">Static Public IP</span><span class="chip">UniFi Site Manager</span><span class="chip">Zero Trust Firewall</span><span class="chip">Cloudflare Tunnels</span><span class="chip">No VLANs</span><span class="chip">Home Lab</span></div>
+      <div class="chips"><span class="chip">UniFi UDR7</span><span class="chip">Static Public IP</span><span class="chip">UniFi Site Manager</span><span class="chip">Zero Trust Firewall</span><span class="chip">Cloudflare Tunnels</span><span class="chip">Managed Network</span></div>
     </div>
   </div>
 </div>
