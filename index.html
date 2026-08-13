@@ -538,7 +538,7 @@
     <div class="about-grid">
       <div class="about-paras reveal">
         <p>I'm <b>Bartosz Borowski</b>, an IT Lead based in Leeds, UK with a passion for building robust, efficient, and secure technology infrastructure.</p>
-        <p>At <b>Duchy Homes Ltd</b>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth and optimise for cost. My recent work has been delivered using <b>AI-assisted research, design, and implementation</b>, including internal application development, infrastructure planning, and security programme design — enabling rapid, high-quality delivery without external dependency.</p>
+        <p>At <b>Duchy Homes Ltd</b>, I lead the IT function — from day-to-day operations and infrastructure management to strategic technology decisions that support business growth and optimise for cost. I use <b>AI-assisted tooling</b> to accelerate research, design, and implementation across internal application development, infrastructure planning, and security programme design — extending what I can deliver solo without external dependency. It's an amplifier on my own knowledge and work ethic, not a substitute for either, and it's what lets me run several significant projects in parallel.</p>
         <p><b>Security is the thread running through all of it.</b> I've led an ongoing modernisation programme spanning 60+ projects across networking, the M365 environment, and cybersecurity — cutting IT expenditure by ~20%+ while raising Microsoft 365 Secure Scores above 90%. That includes designing an in-house Zero Trust identity and device compliance framework built around identity, device compliance, and location, migrating the network estate to UniFi with enterprise-grade IDS/IPS and encrypted DNS, and holding Cyber Essentials certification across two separate organisations.</p>
         <p>I enjoy solving complex problems, automating wherever possible, and building systems that just work. I follow the work of SpaceX, Anthropic, Tesla and FigureAI — organisations pushing the boundary of what's possible. Outside of IT, I'm interested in nutrition, fitness, mountain climbing, and US financial markets.</p>
       </div>
@@ -773,7 +773,7 @@
         <div class="proj-body">
           <div class="proj-title">AI-Assisted Internal App Development</div>
           <div class="proj-meta">April 2026 · IT Lead</div>
-          <p class="proj-desc">Used AI-assisted development to build an internal PDF tooling suite from scratch with no prior development background, replacing high-volume Adobe Acrobat Pro workflows, while improving efficiency. (~£1,750/year saved).</p>
+          <p class="proj-desc">Identified a costly, high-volume manual workflow and built a purpose-built PDF tooling suite to eliminate it — using AI-assisted development to close the gap in my own coding background, with no external dev cost or dependency. Replaced the Adobe Acrobat Pro workflow entirely (~£1,750/year saved).</p>
           <button class="btn" onclick="openModal('m-wp5')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
@@ -976,7 +976,7 @@
       <button class="mclose" onclick="closeModal('m-wp5')">×</button>
     </div>
     <div class="modal-content">
-      <p>Identified that a significant portion of Adobe Acrobat Pro licences were being consumed by a single, simple workflow — extracting individual pages from multi-page PDF construction drawing packages. Used AI-assisted development to build a purpose-built internal Windows desktop application with no prior software development background and no external development costs.</p>
+      <p>Identified that a significant portion of Adobe Acrobat Pro licences were being consumed by a single, simple workflow — extracting individual pages from multi-page PDF construction drawing packages — and built a purpose-built internal Windows desktop application to eliminate it, using AI-assisted development to close the gap in my own coding background, with no external development cost or dependency.</p>
       <p><b>The Application</b>: Built in Python using open-source libraries (PyMuPDF, Pillow, Tkinter), the DH Stamp Plan Extractor provides a graphical interface for browsing PDF thumbnails, selecting pages manually or via keyword search, automatically extracting drawing titles from AutoCAD title blocks, and saving individual pages as standalone PDFs.</p>
       <p><b>Technical Challenges Solved</b>: The standard Tkinter file dialog does not load Windows shell namespace extensions, making ZeeDrive-mapped SharePoint locations invisible — resolved by replacing the dialog with direct Windows Common Dialog API calls via ctypes. AutoCAD PDFs write text layer-by-layer rather than in visual reading order, causing title block extraction to interleave labels with values — resolved with a two-strategy title parser combining phrase-line matching and a hardened label-skip list.</p>
       <p><b>Deployment &amp; Outcome</b>: Packaged using PyInstaller and deployed silently via Intune as a Win32 app. Delivering ~£1,750 in annual savings with no ongoing licensing or vendor dependency.</p>
