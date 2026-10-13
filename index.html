@@ -495,8 +495,8 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>Microsoft 365</span><span>Intune</span><span>UniFi</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>Defender</span><span>Cost Reduction</span><span>Cloudflare</span><span>Starlink</span><span>SAML / OAuth</span><span>Exchange MRM</span><span>Conditional Access</span><span>UAC Hardening</span><span>Privileged Access</span><span>Email Governance</span><span>Compliance Notifications</span><span>BYOD Policies</span><span>SD-WAN</span><span>Windows Hello for Business</span><span>ISO 27001</span><span>Backup &amp; DR</span><span>Python</span><span>PowerShell Scripting</span><span>Local LLM Tooling</span>
-    <span>Microsoft 365</span><span>Intune</span><span>UniFi</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>Defender</span><span>Cost Reduction</span><span>Cloudflare</span><span>Starlink</span><span>SAML / OAuth</span><span>Exchange MRM</span><span>Conditional Access</span><span>UAC Hardening</span><span>Privileged Access</span><span>Email Governance</span><span>Compliance Notifications</span><span>BYOD Policies</span><span>SD-WAN</span><span>Windows Hello for Business</span><span>ISO 27001</span><span>Backup &amp; DR</span><span>Python</span><span>PowerShell Scripting</span><span>Local LLM Tooling</span>
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>Defender</span><span>Cost Reduction</span><span>Cloudflare</span><span>Starlink</span><span>SAML / OAuth</span><span>Exchange MRM</span><span>Conditional Access</span><span>UAC Hardening</span><span>Privileged Access</span><span>Email Governance</span><span>Compliance Notifications</span><span>BYOD Policies</span><span>SD-WAN</span><span>Windows Hello for Business</span><span>ISO 27001</span><span>Backup &amp; DR</span><span>Python</span><span>PowerShell Scripting</span><span>Local LLM Tooling</span><span>Home Assistant</span><span>Zigbee</span>
+    <span>Microsoft 365</span><span>Intune</span><span>UniFi</span><span>Zero Trust</span><span>Cyber Essentials</span><span>Azure / Entra ID</span><span>Defender</span><span>Cost Reduction</span><span>Cloudflare</span><span>Starlink</span><span>SAML / OAuth</span><span>Exchange MRM</span><span>Conditional Access</span><span>UAC Hardening</span><span>Privileged Access</span><span>Email Governance</span><span>Compliance Notifications</span><span>BYOD Policies</span><span>SD-WAN</span><span>Windows Hello for Business</span><span>ISO 27001</span><span>Backup &amp; DR</span><span>Python</span><span>PowerShell Scripting</span><span>Local LLM Tooling</span><span>Home Assistant</span><span>Zigbee</span>
   </div>
 </div>
 
@@ -836,7 +836,7 @@
       <div class="sec-num">05</div>
       <div>
         <h2 class="sec-title">Personal Projects</h2>
-        <div class="sec-meta">// 4 Home Lab Builds</div>
+        <div class="sec-meta">// 5 Home Lab Builds</div>
       </div>
     </div>
     <div class="proj-grid">
@@ -874,6 +874,15 @@
           <div class="proj-title">Cloudflare Tunnels — Secure Remote Access</div>
           <p class="proj-desc">Evolved from DuckDNS with open ports → own domain on Cloudflare → Cloudflare Tunnels with zero open ports. All home lab services run exclusively through Cloudflare's edge with Zero Trust access policies enforced.</p>
           <button class="btn" onclick="openModal('m-pp4')">Find Out More <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-head"><span class="proj-type">Personal · Smart Home</span><span class="proj-num">P5</span></div>
+        <div class="proj-body">
+          <div class="proj-title">Smart Heating Automation — Valve-Aware Heat Demand</div>
+          <p class="proj-desc">Designed and built a Zigbee-based smart heating system that fixes a blind spot in off-the-shelf "smart" TRVs: most call for heat on temperature alone, so the boiler keeps running even after valves have physically closed due to calibration drift. 30+ custom Home Assistant automations now call for heat only when TRVs are genuinely open — cutting heating costs by 15%+.</p>
+          <button class="btn" onclick="openModal('m-pp5')">Find Out More <span class="arrow">→</span></button>
         </div>
       </div>
 
@@ -1335,6 +1344,24 @@
       <p><b>Generation 2 — Own Domain on Cloudflare</b>: Migrated to a personal domain hosted on Cloudflare DNS, with Cloudflare acting as a proxy in front of the services. This added TLS termination and hid the origin IP, but inbound ports were still open on the router — traffic was just better obscured.</p>
       <p><b>Generation 3 — Cloudflare Tunnels (Current)</b>: The current setup uses Cloudflare Tunnels exclusively. The cloudflared daemon on the home server maintains persistent outbound connections to Cloudflare's edge — there are no open ports on the router at all. All inbound traffic for Plex and Home Assistant routes through Cloudflare, with Zero Trust access policies enforcing identity verification before any request reaches the tunnel. The result is a genuinely zero-exposure architecture: no open ports, no origin IP visibility, and identity-gated access at the edge.</p>
       <div class="chips"><span class="chip">Cloudflare Tunnels</span><span class="chip">cloudflared</span><span class="chip">Zero Trust</span><span class="chip">No Open Ports</span><span class="chip">DuckDNS → CF DNS → CF Tunnel</span><span class="chip">TLS Termination</span><span class="chip">Identity Enforcement</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PP5 -->
+<div class="modal" id="m-pp5" onclick="handleOverlayClick(event,'m-pp5')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Personal · Smart Home</div><h3>Smart Heating Automation — Valve-Aware Heat Demand</h3></div>
+      <button class="mclose" onclick="closeModal('m-pp5')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>A self-designed smart heating system built to fix a problem most "smart" TRVs never solve: they decide whether to call for heat using temperature readings alone, with no awareness of whether their own valve is actually open. Small, normal calibration variation between a TRV's temperature sensor and its valve mechanism means the boiler frequently keeps firing on a room whose valve has already physically closed — wasted heat, wasted gas, no benefit. Built on Google Nest, Zigbee smart TRVs, and a network of temperature/humidity sensors, all coordinated through a Home Assistant server running 30+ custom automations.</p>
+      <p><b>The Problem — Closing the Calibration Gap</b>: Standard TRVs expose only a target temperature to the smart home layer; they never report whether the physical valve itself is open or closed. In practice, every TRV calibrates slightly differently, so a room can read "still cold" and keep calling for heat for several minutes after its valve has fully closed — the boiler keeps circulating hot water to a radiator that's no longer accepting any. Identified this gap through direct monitoring of valve state vs. reported temperature across the home, and built automations that check actual TRV valve position before allowing a room to request heat.</p>
+      <p><b>Automations &amp; Control</b>: Over 30 custom Home Assistant automations coordinate the system: valve-state-aware heat calls per room, geofencing via Google Nest/Home Assistant to pre-heat ahead of arrival and set back automatically when everyone's away, occupancy- and usage-pattern-based scheduling built from real-world historical data rather than fixed timers, and demand aggregation logic that only calls the boiler on when at least one valve in the relevant zone is genuinely open.</p>
+      <p><b>Sensors &amp; Hardware</b>: Zigbee-based smart TRVs provide per-radiator control and valve-state reporting, paired with dedicated temperature/humidity sensors in key rooms to decouple "room comfort" readings from the TRV's own on-valve sensor — giving the automations a more accurate picture of actual comfort versus valve behaviour. Google Nest provides whole-home thermostat control and the geofencing signal that drives arrival/departure automations.</p>
+      <p><b>Outcome</b>: Based on energy consumption forecasting and before/after usage analysis, the system has reduced heating-related costs by 15%+, while improving actual comfort — rooms reach and hold target temperature more reliably — and reducing emissions from cutting unnecessary boiler run-time.</p>
+      <div class="chips"><span class="chip">Home Assistant</span><span class="chip">Google Nest API</span><span class="chip">Zigbee TRVs</span><span class="chip">Temp/Humidity Sensors</span><span class="chip">30+ Custom Automations</span><span class="chip">Geofencing</span><span class="chip">Valve-State Heat Demand</span><span class="chip">Energy Forecasting</span><span class="chip">15%+ Cost Reduction</span></div>
     </div>
   </div>
 </div>
