@@ -249,6 +249,7 @@
   .exp-co{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--acc);}
   .exp-body{padding:22px 24px;}
   .exp-body p{font-size:15px;line-height:1.65;margin-bottom:18px;}
+  .exp-body .btn{margin-top:18px;}
   .chips{display:flex;flex-wrap:wrap;gap:8px;}
   .chip{
     border:2px solid var(--ink);
@@ -580,6 +581,7 @@
         <div class="chips">
           <span class="chip">Modern Workplace Framework</span><span class="chip">In-House IT Delivery</span><span class="chip">Purview DLP</span><span class="chip">Microsoft 365 &amp; Intune</span><span class="chip">UniFi / SD-WAN</span><span class="chip">Azure / Entra ID</span><span class="chip">Cyber Essentials</span><span class="chip">Zero Trust</span><span class="chip">Automation</span><span class="chip">Cost Optimisation</span>
         </div>
+        <button class="btn" onclick="openModal('m-exp-duchy')">Find Out More <span class="arrow">→</span></button>
       </div>
     </div>
 
@@ -594,6 +596,7 @@
         <div class="chips">
           <span class="chip">Project Management</span><span class="chip">Stakeholder Management</span><span class="chip">MSP / Managed Services</span><span class="chip">Client Solution Design</span><span class="chip">Subcontractor Coordination</span><span class="chip">Windows Server / Linux</span><span class="chip">Security &amp; Compliance</span>
         </div>
+        <button class="btn" onclick="openModal('m-exp-alphaomega')">Find Out More <span class="arrow">→</span></button>
       </div>
     </div>
 
@@ -608,6 +611,7 @@
         <div class="chips">
           <span class="chip">Azure AD</span><span class="chip">Citrix</span><span class="chip">UniFi</span><span class="chip">YubiKey MFA</span><span class="chip">Regulated Environment</span>
         </div>
+        <button class="btn" onclick="openModal('m-exp-bwlegal')">Find Out More <span class="arrow">→</span></button>
       </div>
     </div>
 
@@ -615,13 +619,14 @@
       <div class="exp-top">
         <span class="exp-date">Aug 2022 — May 2023</span>
         <span class="exp-role">IT Support Technician</span>
-        <span class="exp-co">Makehappen Group (now Future Network Solutions) — Leeds</span>
+        <span class="exp-co">2 Rent UK (formerly Makehappen Group) — Leeds</span>
       </div>
       <div class="exp-body">
         <p>Provided 1st and 2nd line support across UK offices including Leeds, Manchester, Thetford, Cleckheaton, and Liverpool. Deployed Ubiquiti infrastructure, managed Microsoft Exchange Online, and built SharePoint portals. Deployed and managed company devices via Microsoft Autopilot and Intune. Overhauled Grandstream VoIP systems and supported Sage server maintenance.</p>
         <div class="chips">
           <span class="chip">Autopilot / Intune</span><span class="chip">Exchange Online</span><span class="chip">SharePoint</span><span class="chip">VoIP</span><span class="chip">Multi-site Support</span>
         </div>
+        <button class="btn" onclick="openModal('m-exp-2rentuk')">Find Out More <span class="arrow">→</span></button>
       </div>
     </div>
 
@@ -636,6 +641,7 @@
         <div class="chips">
           <span class="chip">Cyber Essentials</span><span class="chip">Office 365</span><span class="chip">VoIP</span><span class="chip">Asset Management</span><span class="chip">Apprenticeship</span>
         </div>
+        <button class="btn" onclick="openModal('m-exp-woodspeen')">Find Out More <span class="arrow">→</span></button>
       </div>
     </div>
   </div>
@@ -1078,6 +1084,90 @@
   </div>
 </div>
 
+<!-- EXP-DUCHY -->
+<div class="modal" id="m-exp-duchy" onclick="handleOverlayClick(event,'m-exp-duchy')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Duchy Homes Ltd</div><h3>IT Lead — Full Role Overview</h3><div class="mmeta">Jan 2025 — Present · Leeds</div></div>
+      <button class="mclose" onclick="closeModal('m-exp-duchy')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>I lead the IT function at Duchy Homes Ltd, with full ownership of network architecture, security posture, Microsoft 365 administration, vendor management, and digital transformation across a Leeds head office and seven remote development sites (~60 staff, ~250 endpoints).</p>
+      <p><b>The Modern Workplace Framework</b>: Everything I deliver sits under a Modern Workplace Framework I built and lead — a continuous-improvement philosophy, not a one-off project, that's driven 80+ initiatives to date. Central to that has been taking the IT function fully in-house from a historically MSP-dependent model, retaining the external relationship solely for M365 licensing and hardware procurement, so that every proposal, change, and project is now designed, delivered, and documented end-to-end personally.</p>
+      <p><b>Security &amp; Zero Trust</b>: Security sits at the core of the framework: an in-house Zero Trust identity and device compliance framework, now extended with Microsoft Purview Insider Risk Management and Adaptive DLP, a company-wide UniFi network migration, and a backup platform replacement that closed a critical disaster-recovery gap. Microsoft 365 Secure Scores sit above 90%, and I hold Cyber Essentials certification across two organisations.</p>
+      <p><b>In-House Development</b>: Beyond infrastructure, I write scripts and build internal applications — including local LLM-based tooling — to close operational gaps and cut manual processing time, from an internal PDF tooling suite to a Subject Access Request toolkit that's cut processing time by ~75%.</p>
+      <p><b>Outcomes</b>: The combined result: IT costs cut by 20%+, key business workflows modernised, and Duchy Homes positioned to expand quickly on modern IT functions rather than legacy infrastructure.</p>
+      <div class="chips"><span class="chip">Modern Workplace Framework</span><span class="chip">In-House IT Delivery</span><span class="chip">Zero Trust</span><span class="chip">Purview DLP</span><span class="chip">80+ Projects</span><span class="chip">M365 Score 90%+</span><span class="chip">Cyber Essentials x2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP-ALPHAOMEGA -->
+<div class="modal" id="m-exp-alphaomega" onclick="handleOverlayClick(event,'m-exp-alphaomega')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Alpha Omega Computer Ltd</div><h3>System Support Engineer — Full Role Overview</h3><div class="mmeta">Nov 2023 — Jan 2025 · Batley</div></div>
+      <button class="mclose" onclick="closeModal('m-exp-alphaomega')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>Alpha Omega Computers is a small, dynamic managed service provider based in Batley, where I worked as a System Support Engineer supporting clients across West Yorkshire and beyond — from day-to-day tickets and SLAs through to infrastructure projects and contract renewals.</p>
+      <p><b>Client Infrastructure &amp; IaaS</b>: I designed, deployed, and managed web hosting, DNS, and storage solutions for remote clients, and managed client infrastructure spanning on-premises, hybrid, and cloud environments — connectivity, firewalls, switches, access points, servers, and endpoint devices. Regular site visits covered support, maintenance, project work, and upgrades, and I coordinated external cabling subcontractors where client or project needs required it.</p>
+      <p><b>Royal Armouries Contract</b>: I provided tailored private LAN/WAN connectivity for events of all scales at the Royal Armouries Museum, from small gatherings up to 3,000 concurrent users, and led a 10G network infrastructure redesign across three buildings to support that scale.</p>
+      <p><b>Tooling &amp; Team</b>: I introduced cost-effective, open-source solutions for ticket and asset management, along with a new agent-based device monitoring platform for better analytics and SLA assurance. I also line-managed two junior engineers, one of whom I personally recruited, mentoring them and collaborating across the team to deliver projects on time and within budget.</p>
+      <div class="chips"><span class="chip">MSP</span><span class="chip">IaaS</span><span class="chip">Web Hosting &amp; DNS</span><span class="chip">On-Prem/Hybrid/Cloud</span><span class="chip">Royal Armouries</span><span class="chip">10G Networking</span><span class="chip">Open-Source Tooling</span><span class="chip">Team Mentoring</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP-BWLEGAL -->
+<div class="modal" id="m-exp-bwlegal" onclick="handleOverlayClick(event,'m-exp-bwlegal')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · BW Legal</div><h3>1st Line Support Engineer — Full Role Overview</h3><div class="mmeta">May 2023 — Nov 2023 · Leeds</div></div>
+      <button class="mclose" onclick="closeModal('m-exp-bwlegal')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>At BW Legal, a highly regulated legal business, I was the first point of contact for IT support across both the head office and call-centre divisions, triaging issues and escalating quickly to 2nd/3rd line wherever something urgent or SLA-impacting came in.</p>
+      <p><b>Compliance &amp; Infrastructure</b>: I performed out-of-hours server patching to maintain cyber compliance, supported a hybrid Microsoft 365 environment spanning Active Directory, M365, and Citrix zero-clients, and managed and troubleshot the UniFi network across the Leeds head office.</p>
+      <p><b>Cross-Team Collaboration</b>: I worked closely with the analytics, development, and infrastructure teams to alpha-test new builds ahead of business-wide rollout, feeding back real-world findings before changes reached the wider business.</p>
+      <div class="chips"><span class="chip">Regulated Environment</span><span class="chip">Hybrid AD/M365</span><span class="chip">Citrix Zero Clients</span><span class="chip">UniFi</span><span class="chip">Server Patching</span><span class="chip">Alpha Testing</span><span class="chip">Escalation Management</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP-2RENTUK -->
+<div class="modal" id="m-exp-2rentuk" onclick="handleOverlayClick(event,'m-exp-2rentuk')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · 2 Rent UK</div><h3>IT Support Technician — Full Role Overview</h3><div class="mmeta">Aug 2022 — May 2023 · Leeds</div></div>
+      <button class="mclose" onclick="closeModal('m-exp-2rentuk')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>At 2 Rent UK (known as Makehappen Group at the time), I provided IT support for a cloud-first business with a Leeds head office and five remote sites, working across Teams, phone, and in-person support.</p>
+      <p><b>Cloud &amp; On-Prem Infrastructure</b>: I managed the cloud environment across SharePoint, OneDrive, Intune, Autopilot, and M365, alongside on-premises infrastructure including networking, NAS storage, an on-prem Sage 50 deployment, and VMware test environments — working with platforms including Draytek, Meraki, Synology, UniFi, SonicWall, Defender, Grandstream, and Android Enterprise.</p>
+      <p><b>VoIP Overhaul</b>: I overhauled the business's VoIP solution on Grandstream hardware, configuring SIP trunks, auto-attendant, call queues, and a cross-site SIP VPN to tie every location together.</p>
+      <p><b>Device Management</b>: I improved Windows Autopilot deployment by adding Win32 apps to automatic, department-, and role-based deployment profiles, and managed the corporate Android Enterprise stack — configuring Managed Play Store and ensuring reliable managed app delivery, configuration, and compliance across the corporate Android estate.</p>
+      <div class="chips"><span class="chip">Cloud-First M365</span><span class="chip">SharePoint &amp; OneDrive</span><span class="chip">Windows Autopilot</span><span class="chip">Android Enterprise</span><span class="chip">Grandstream VoIP</span><span class="chip">SIP/VPN</span><span class="chip">Multi-Site Support</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP-WOODSPEEN -->
+<div class="modal" id="m-exp-woodspeen" onclick="handleOverlayClick(event,'m-exp-woodspeen')">
+  <div class="modal-box">
+    <div class="modal-top">
+      <div><div class="mtype">Professional · Woodspeen Training</div><h3>IT Support Technician (Apprenticeship) — Full Role Overview</h3><div class="mmeta">Jun 2021 — Aug 2022 · Huddersfield</div></div>
+      <button class="mclose" onclick="closeModal('m-exp-woodspeen')">×</button>
+    </div>
+    <div class="modal-content">
+      <p>I completed my Infrastructure Technician apprenticeship at Woodspeen Training, supporting a small business across a fully on-premises environment while working toward my qualification.</p>
+      <p><b>Cyber Essentials &amp; Infrastructure</b>: I guided the business through its first Cyber Essentials certification, managing on-prem servers and networking and maintaining regular patching across corporate endpoints, the domain controller, RDP, and Exchange servers to meet compliance requirements. I also introduced asset and incident management systems to improve day-to-day IT operations and create an auditable infrastructure as part of the Cyber Essentials framework.</p>
+      <p><b>VoIP Migration</b>: I migrated the business to a BT CloudWorks VoIP solution across all locations, introducing auto-attendant, call queues, calling groups, and call analytics to support the business development and quality assurance teams.</p>
+      <div class="chips"><span class="chip">Infrastructure Apprenticeship</span><span class="chip">Cyber Essentials</span><span class="chip">On-Prem Servers</span><span class="chip">Exchange/RDP Patching</span><span class="chip">Asset &amp; Incident Management</span><span class="chip">BT CloudWorks VoIP</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- OTHER PROJECTS MODAL -->
 <div class="modal" id="m-other" onclick="handleOverlayClick(event,'m-other')">
   <div class="modal-box" style="max-width:860px;">
@@ -1117,7 +1207,7 @@
       <div class="op-item">
         <div class="op-head">
           <div class="op-title">Multi-Site Autopilot &amp; Intune Rollout</div>
-          <div class="op-badge">Makehappen</div>
+          <div class="op-badge">2 Rent UK</div>
         </div>
         <div class="op-meta">2022–2023 · IT Support Technician</div>
         <div class="op-desc">Deployed and managed Windows Autopilot and Intune across multiple UK office locations (Leeds, Manchester, Thetford, Cleckheaton, Liverpool). Standardised the device provisioning process, eliminating manual imaging. Also built internal SharePoint portals and overhauled Grandstream VoIP infrastructure.</div>
